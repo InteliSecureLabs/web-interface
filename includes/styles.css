@@ -1,0 +1,167 @@
+.navbar {
+	top:10px;
+	min-width:80%;
+	background:green;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        border-top-left-radius: 10px 10px;
+        border-top-right-radius: 10px 10px;
+        border-bottom-left-radius: 10px 10px;
+        border-bottom-right-radius: 10px 10px;
+	text-align:center;
+	color:black;
+}
+
+.content {
+        font-family: monospace;
+	min-width: 700px;
+	max-width: 700px;
+	text-align:center;
+	margin: 0 auto;
+}
+
+.contentTitle {
+        text-align:left;
+	padding-left: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-top-left-radius: 10px 10px;
+        border-top-right-radius: 10px 10px;
+        background:green;
+        font-weight:bold;
+        font-size:15;
+	color: white;
+}
+
+.contentContent {
+	text-align:left;
+        padding-left: 10px;
+	padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom-left-radius: 10px 10px;
+        border-bottom-right-radius: 10px 10px;
+        background:black;
+        min-height: 40px;
+        color:white;
+        border-color: green;
+        border-style: solid;
+        border-width: 1px
+}
+
+.sidePanelLeft {
+	position:absolute;
+	top:50px;
+	text-align:left;
+	min-width:300px;
+	font-family: monospace;
+}
+
+.sidePanelRight {
+        position:absolute;
+	right:1%;
+        top:50px;
+        text-align:left;
+        min-width:300px;
+        font-family: monospace;
+}
+
+
+.sidePanelTitle {
+        padding-left: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-top-left-radius: 10px 10px;
+        border-top-right-radius: 10px 10px;
+        background:green;
+        font-weight:bold;
+        font-size:15;
+	color:white;
+	
+}
+
+.sidePanelContent {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;        
+	background:black;
+        border-bottom-left-radius: 10px 10px;
+        border-bottom-right-radius: 10px 10px;
+	min-height: 40px;
+        color:white;
+        border-color: green;
+        border-style: solid;
+        border-width: 1px
+}
+.moduleTitle {
+        padding-left: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-top-left-radius: 10px 10px;
+        border-top-right-radius: 10px 10px;
+        background:green;
+        font-weight:bold;
+        font-size:15;
+	color: white;
+}
+
+.moduleContent {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom-left-radius: 10px 10px;
+        border-bottom-right-radius: 10px 10px;
+        background:black;
+        min-height: 40px;
+        color:white;
+        border-color: green;
+        border-style: solid;
+        border-width: 1px
+}
+
+.modules {
+        position:absolute;
+        right: 20%;
+        left: 20%;
+        font-family: monospace;
+}
+
+.moduleContent td {
+	border-width: 15px;
+	border-spacing: 20px;
+	border-style: solid;
+	border-color: black;
+	border-collapse: collapse;
+	color: white;
+}
+
+body {
+	font-family: monospace;
+	color:white;
+	background:black;
+	text-align:center;
+}
+
+a {
+        color:white;
+}
+
+input[type=text], input[type=password] {
+        font-family:courier;
+        border: 1px;
+        background-color:black; 
+	color:white; 
+	border-style:dotted;
+}
+
+pre {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}

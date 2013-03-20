@@ -1,0 +1,4 @@
+#!/bin/bash
+empty -f -i input.fifo -o output.fifo -p empty.pid passwd
+empty -w -i output.fifo -o input.fifo password: "$1\n"
+empty -w -i output.fifo -o input.fifo password: "$1\n"
