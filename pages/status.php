@@ -45,7 +45,8 @@ if(isset($_GET[report])){
         $cmd="/pineapple/karma/karmaclients.sh";
         exec("$cmd 2>&1", $output);
         foreach($output as $outputline) {
-                 echo ("$outputline\n");
+        	$o2=htmlentities($outputline);
+                echo ("$o2\n");
          }
 ?>
 </pre>
@@ -91,17 +92,17 @@ if ($autoKarma != ""){
 echo "Autostart  <font color=\"lime\"><b>".$strings["status-enabled"]."</b></font>.&nbsp; | <a href=\"karma/autoKarmaStop.php\"><b>".$strings["status-stop"]."</b></a><br />";
 } else { echo "Autostart  <font color=\"red\"><b>".$strings["status-disabled"]."</b></font>. | <a href=\"karma/autoKarmaStart.php\"><b>".$strings["status-start"]."</b></a><br />"; }
 
-$cronjobs = ( exec("ps -all | grep [c]ron"));
+$cronjobs = ( exec("ps | grep cron"));
 if ($cronjobs != ""){
 echo "Cron Jobs <font color=\"lime\"><b>".$strings["status-enabled"]."</b></font>.&nbsp; | <a href=\"index.php?jobs&stop&goback\"><b>".$strings["status-stop"]."</b></a><br />";
 } else { echo "Cron Jobs <font color=\"red\"><b>".$strings["status-disabled"]."</b></font>. | <a href=\"index.php?jobs&start&goback\"><b>".$strings["status-start"]."</b></a> | <a href=\"index.php?jobs\"><b>Edit</b></a><br />"; }
 
-$isurlsnarfup = exec("ps auxww | grep urlsnarf.sh | grep -v -e grep");
+$isurlsnarfup = exec("ps | grep urlsnarf.sh | grep -v -e grep");
 if ($isurlsnarfup != "") {
 echo "URL Snarf  <font color=\"lime\"><b>".$strings["status-enabled"]."</b></font>.&nbsp; | <a href=\"urlsnarf/stopurlsnarf.php\"><b>".$strings["status-stop"]."</b></a><br />";
 } else { echo "URL Snarf  <font color=\"red\"><b>".$strings["status-disabled"]."</b></font>. | <a href=\"urlsnarf/starturlsnarf.php\"><b>".$strings["status-start"]."</b></a><br />"; }
 
-$isdnsspoofup = exec("ps auxww | grep dnsspoof.sh | grep -v -e grep");
+$isdnsspoofup = exec("ps | grep dnsspoof.sh | grep -v -e grep");
 if ($isdnsspoofup != "") {
 echo "DNS Spoof  <font color=\"lime\"><b>".$strings["status-enabled"]."</b></font>.&nbsp; | <a href=\"dnsspoof/stopdnsspoof.php\"><b>".$strings["status-stop"]."</b></a><br />";
 } else { echo "DNS Spoof  <font color=\"red\"><b>".$strings["status-disabled"]."</b></font>. | <a href=\"dnsspoof/startdnsspoof.php\"><b>".$strings["status-start"]."</b></a> | <a href=\"index.php?config#dnsspoof\"><b>".$strings["status-edit"]."</b></a><br/>"; }
@@ -114,7 +115,7 @@ if (exec("grep 3g-keepalive.sh /etc/crontabs/root") == "") {
 echo "3G redial <font color='red'><b>".$strings["status-disabled"]."</b></font>. | <a href='index.php?3g&enablekeepalive&enable&goback'><b>".$strings["status-enable"]."</b></a><br />";
 } else { echo "3G redial <font color='lime'><b>".$strings["status-enabled"]."</b></font>.&nbsp; | <a href='index.php?3g&disablekeepalive&goback'><b>".$strings["status-disable"]."</b></a><br />"; }
 
-if (exec("ps aux | grep [s]sh | grep -v -e ssh.php | grep -v grep") == "") {
+if (exec("ps | grep ssh | grep -v -e ssh.php | grep -v grep") == "") {
 echo "&nbsp; &nbsp; &nbsp; SSH <font color=\"red\"><b>".$strings["status-offline"]."</b></font>. &nbsp;| <a href=\"index.php?ssh&connect&goback\"><b>".$strings["status-connect"]."</b></a><br />";
 } else {
 echo "&nbsp; &nbsp; &nbsp; SSH <font color=\"lime\"><b>".$strings["status-online"]."</b></font>. &nbsp; | <a href=\"index.php?ssh&disconnect&goback\"><b>".$strings["status-disconnect"]."</b></a><br />";
@@ -136,7 +137,6 @@ echo "&nbsp; Stealth <font color=lime><b>".$strings["status-enabled"]."</b></fon
 <div class=sidePanelContent></b>
 <?php
 echo "&nbsp;".$strings["status-poe"]." " . exec("ifconfig br-lan | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'") . "<br />";
-echo "&nbsp;&nbsp; ".$strings["status-3g"]." " . exec("ifconfig 3g-wan2 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'") . "<br />";
 echo "&nbsp;".$strings["status-wan"]." " . exec("ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'") . "<br />";
 echo $strings["status-public"]." ";
 if (isset($_GET[revealpublic])) {

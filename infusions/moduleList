@@ -1,0 +1,9 @@
+nmap|2.4|internal|nmap.php|n/a
+urlsnarf|2.8|internal|urlsnarf.php|n/a
+sslstrip|2.9|internal|sslstrip.php|n/a
+tcpdump|2.4|internal|tcpdump.php|n/a
+ettercap|1.5|internal|ettercap.php|n/a
+sitesurvey|2.6|internal|site_survey.php|n/a
+status|1.4|internal|status.php|n/a
+randomroll|3.2|internal|randomroll.php|n/a
+dnsspoof|1.6|internal|dnsspoof.php|n/a

@@ -1,7 +1,7 @@
 <?php
   if(isset($_POST[persistent]))
   {
-    
+
     if($_POST[persistent] == "No")
     {
       echo "<script type=text/javascript>window.location=\"?upgrade&doOTA\";</script>";
@@ -270,8 +270,7 @@
   <div class=contentContent>
     <pre>
     <?php
-      $cmd = "free";
-      exec ($cmd, $output);
+      exec ("free", $output);
       foreach($output as $outputline)
       {
         echo ("$outputline\n");

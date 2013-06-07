@@ -1,0 +1,36 @@
+<style type="text/css">
+body {
+    background:#0000aa;
+    color:#ffffff;
+    font-family:courier;
+    font-size:12pt;
+    text-align:center;
+    margin:100px;
+}
+
+blink {
+    color:yellow;
+}
+
+.neg {
+    background:#fff;
+    color:#0000aa;
+    padding:2px 8px;
+    font-weight:bold;
+}
+
+p {
+    margin:30px 100px;
+    text-align:left;
+}
+
+a,a:hover {
+    color:inherit;
+    font:inherit;
+}
+
+.menu {
+    text-align:center;
+    margin-top:50px;
+}
+</style>

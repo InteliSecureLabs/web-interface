@@ -1,10 +1,12 @@
 <pre>
 
 <center>
-<font color="yellow"><b>WiFi Pineapple Mark IV</b></font>
-Firmware version: <?php echo file_get_contents("includes/fwversion");?><br\>
+<font color="yellow"><b>WiFi Pineapple TPLink703n</b></font>
+Software version: <?php echo file_get_contents("includes/fwversion");?><br\>
 
-The WiFi Pineapple is brought to you by the Jasager Team:
+The TPLink WiFi Pineapple(Mod+) is brought to you by <font color="lime">PenturaLabs</font><br> 
+
+The WiFi Pineapple was brought to you by the Jasager Team:
 <a href="http://www.digininja.org"><font color="lime">Robin Wood</font></a>, <a href="http://hak5.org"><font color="lime">Darren Kitchen</font></a>, <a href="http://sebkinne.com"><font color="lime">Sebastian Kinne</font></a>, <a href="http://www.room362.com"><font color="lime">Rob Fuller</font></a>, and our <a href="http://cloud.wifipineapple.com/forum/"><font color="lime">hacktastic community</font></a>
 Open source software is distributed under the GNU <a href="http://www.gnu.org/licenses/gpl.html"><font color=white>General Public License</font></a>
 
@@ -12,11 +14,10 @@ WiFi Pineapple is a wireless penetration testing tool
 for use in authorized security audits where permitted.
 Check laws and obtain client permission before using.
 Hak5, LLC., Darren Kitchen, Robin Wood, Rob Fuller, 
-Sebastian Kinne and affiliates claim no responsability for
+Sebastian Kinne, Midnitesnake and affiliates claim no responsability for
 unauthorized use. <font color="darkred"><b>Please Hack Responsibly.</b></font>
 
-Support and Updates at <a href="http://cloud.wifipineapple.com"><font color=white>WiFiPineapple.com</font></a>
-<a href="http://cloud.wifipineapple.com/bugs">Want to request a feature or submit a bug?</a>
+<a href="http://cloud.wifipineapple.com/bugs">Want offical support complain here!</a>
 
 <?php
 if(trim($strings["author"]) != ""){

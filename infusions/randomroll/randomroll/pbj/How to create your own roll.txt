@@ -1,0 +1,25 @@
+Instructions on how to make your own roll
+
+
+#1. Create your own roll in /usb/modules/randomroll/randomroll/YourRollName/
+
+#2. Place all your files in the folder you just created.
+
+#3. Re-name or create a file index.html, this will be your roll, the one people will get redirected too.
+
+#4. Add this line just under the body tag:
+<iframe style="opacity:0;" width="0" height="0" src="/randomroll/log.php?roll=PBJ"></iframe>
+Change roll=PBJ to the name you want to show in the log.
+
+#5. Change all the links/pictures/files in index.html to link directly to /randomroll/NameOfYourRollFolder/sound.mp3, instead of just sound.mp3.
+
+#6. Create the preview page by creating a file called index2.html that is exactly the same as index.html
+but with links to files within it's own folder IE change /randomroll/NameOfYourFolder/sound.mp3 to sound.mp3
+and does not have the <iframe> tag(used only for logging within the module).
+
+#7. Create a file called thumbnail.* that is 80 X 80 Pixels, this is used for the thumbnail inside the module, not required but looks nicer.
+
+#8. Create a file creator.ini, with the creator's name on the first line and a link to a web-page of your choice on the second line.
+
+
+You should now be done and can check out your roll in the module, Make sure to enable it;-)

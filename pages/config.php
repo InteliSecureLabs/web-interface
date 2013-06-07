@@ -72,7 +72,7 @@ if(isset($_GET[updateLanguages])){
 <div class=contentTitle><?=$strings["config-karmaConfig"]?></div>
 <div class=contentContent>
 <b><?=$strings["config-karmaConfig-ssid"]?> (<?= exec("hostapd_cli -p /var/run/hostapd-phy0 karma_get_ssid")?>)</b><br />
-<form action='<?php echo $_SERVER[php_self] ?>' method= 'post' >
+<form action='#' method= 'post' >
 <input type="text" name="newSSID" size='25' value="SSID" onFocus="if(this.value == 'SSID') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'SSID';}" >
 <br><?=$strings["config-karmaConfig-ssid-persistent"]?>:<input type="checkbox" name="newSSIDPersistent">
 <br><input type='submit' value='<?=$strings["config-karmaConfig-ssid-button"]?>'>
@@ -84,13 +84,13 @@ $BWMode = exec("hostapd_cli -p /var/run/hostapd-phy0 karma_get_black_white");
 $changeLink = "<a href='karma/changeBW.php'>".$strings["config-karmaConfig-ssid-bw-change"]."</a>";
 ?>
 <font color='lime' size='2'> <?=$strings["config-karmaConfig-ssid-bw-mode"]?>  <?php echo $BWMode ?> | <font color='red'><?php echo $changeLink ?></font></font><br>
-<form action='<?php echo $_SERVER[php_self] ?>' method= 'post' >
+<form action='#' method= 'post' >
 <input type="text" name="ssidBW" size='27' value="SSID" onFocus="if(this.value == 'SSID') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'SSID'}">
 <br><input type='submit' name='addSSID' value='<?=$strings["config-karmaConfig-ssid-bw-add"]?>'><input type='submit' name='removeSSID' value='<?=$strings["config-karmaConfig-ssid-bw-remove"]?>'>
 </form>
 </td><td>
 <b><?=$strings["config-karmaConfig-mac"]?></b>
-<form action='<?php echo $_SERVER[php_self] ?>' method= 'post' >
+<form action='#' method= 'post' >
 <input type="text" name="macBW" size='27' value="MAC" onFocus="if(this.value == 'MAC') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'MAC';}">
 <br><input type='submit' name='addMAC' value='<?=$strings["config-karmaConfig-ssid-bw-add"]?>'><input type='submit' name='removeMAC' value='<?=$strings["config-karmaConfig-ssid-bw-remove"]?>'>
 </form>
@@ -182,11 +182,10 @@ $resetButton = trim(file_get_contents("config/resetButtonStatus"));
 Reset button <?php if($resetButton == "enabled") echo "<font color=lime>".$strings["config-button-resetEnabled"]."</font>"; else echo "<font color=red>".$strings["config-button-resetDisabled"]."</font>" ?>.
 <br /><br />
 <?php
-$filename = "config/wpsScript.sh";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("config/wpsScript.sh", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("config/wpsScript.sh")) or die("Could not read file!");
   fclose($fh);
- echo "<form action='$_SERVER[php_self]' method= 'post' >
+echo "<form action='#' method= 'post' >
 <textarea name='newdata' rows='20' style='min-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='config/wpsScript.sh'>
 <br><center><input type='submit' value='".$strings["config-button-wpsButton"]."'>
@@ -198,11 +197,10 @@ $filename = "config/wpsScript.sh";
 <div class=contentContent>
 <?=$strings["config-dnsspoof-description"]?><br /><br />
 <?php
-$filename = "config/spoofhost";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("config/spoofhost", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("config/spoofhost")) or die("Could not read file!");
   fclose($fh);
- echo "<form action='$_SERVER[php_self]' method= 'post' >
+ echo "<form action='#' method= 'post' >
 <textarea name='newdata' rows='20' style='min-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='config/spoofhost'>
 <br><center><input type='submit' value='".$strings["config-dnsspoof-button"]."'>
@@ -216,11 +214,10 @@ $filename = "config/spoofhost";
 <div class=contentContent>
 <?=$strings["config-landing-description"]?><br /><br />
 <?php
-$filename = "/www/index.php";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("/www/index.php", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("/www/index.php")) or die("Could not read file!");
   fclose($fh);
- echo "<form action='$_SERVER[php_self]' method= 'post' >
+ echo "<form action='#' method= 'post' >
 <textarea name='newdata' rows='20' style='min-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='/www/index.php'>
 <br><center><input type='submit' value='".$strings["config-landing-button"]."'>
@@ -234,11 +231,10 @@ $filename = "/www/index.php";
 <div class=contentContent>
 <br />
 <?php
-$filename = "includes/styles.css";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("includes/styles.css", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("includes/styles.css")) or die("Could not read file!");
   fclose($fh);
- echo "<form action='$_SERVER[php_self]' method= 'post' >
+echo "<form action='#' method= 'post' >
 <textarea name='newdata' rows='20' style='min-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='includes/styles.css'>
 <br><center><input type='submit' value='".$strings["config-css-button"]."'>

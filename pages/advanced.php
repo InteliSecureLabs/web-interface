@@ -9,11 +9,6 @@ if(isset($_POST['clearcache'])) {
 	echo "<font color='lime'><b>".$strings["advanced-cacheCleared"]."</b></font><br />";
 }
 
-if(isset($_POST['factoryreset'])) {
-	exec("echo \"/etc/resetPineapple.sh\" | at now");
-	echo "<font color='lime'><b>".$strings["advanced-resetComplete"]."</b></font><br /><br />";
-}
-
 if(isset($_POST['reboot'])) {
 	exec("reboot");
 }
@@ -23,7 +18,6 @@ if(isset($_POST['reboot'])) {
 <center>
 <form action="" method="POST">
 <input type=submit name=clearcache value="<?=$strings["advanced-clearCache"]?>">
-<input type=submit name=factoryreset value="<?=$strings["advanced-factoryReset"]?>">
 <input type=submit name=reboot value="<?=$strings["advanced-reboot"]?>">
 </form>
 </center>
@@ -36,7 +30,7 @@ if(isset($_POST[pinghost])) {
 <div class=contentContent>
 <pre>
 <?php
-$cmd = "ping $_POST[pinghost] -c4";
+$cmd = "ping $_POST[pinghost] -c 4";
 exec ($cmd, $output);
 foreach($output as $pingline) {
 echo ("$pingline\n");}

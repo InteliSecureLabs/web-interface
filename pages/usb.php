@@ -28,12 +28,11 @@ echo("$line <br />");
 <div class="contentTitle"><?=$strings["usb-fstab"]?></div>
 <div class="contentContent">
 <?php
-$filename = "/etc/config/fstab";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("/etc/config/fstab", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("/etc/config/fstab")) or die("Could not read file!");
   fclose($fh);
  echo "<br />
-<form action='$_SERVER[php_self]' method= 'post' >
+<form action='#' method= 'post' >
 <textarea name='newdata' rows='20' style='min-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='/etc/config/fstab'>
 <br><center><input type='submit' value='".$strings["usb-fstab-button"]."'>

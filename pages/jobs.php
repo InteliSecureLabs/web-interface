@@ -7,7 +7,7 @@ echo '<script type="text/javascript">
 }
 
 
-$cronjobs = ( exec("ps -all | grep [c]ron"));
+$cronjobs = ( exec("ps | grep cron"));
 if(isset($_GET[start])){
 exec("/etc/init.d/cron enable");
 exec("/etc/init.d/cron start");
@@ -57,11 +57,10 @@ echo $strings["jobs-cronjobs"]." <font color=\"lime\"><b>".$strings["jobs-cronjo
 <div class=contentTitle><?=$strings["jobs-cronjobs-title"]?></div>
 <div class=contentContent>
 <?php
-$filename = "/etc/crontabs/root";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("/etc/crontabs/root", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("/etc/crontabs/root")) or die("Could not read file!");
   fclose($fh);
- echo "<form action='$_SERVER[php_self]' method= 'post' >
+ echo "<form action='#' method= 'post' >
 <textarea name='newdata' rows='20' style='min-width:100%; max-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='/etc/crontabs/root'>
 <br><center><input type='submit' value='".$strings["jobs-cronjobs-button"]."'>

@@ -87,7 +87,7 @@ if($localModules[0] == ""){
 	echo "<center>".$strings["modules-installed-noModules"]."</center>";
 }else{
 
-	$usbPresent = (exec("mount | grep \"on /usb\" -c") >= 1)?true:false;
+	#$usbPresent = (exec("mount | grep \"on /usb\" -c") >= 1)?true:false;
 	$usbModules = false;
 	$moduleArray = array();
 	foreach($localModules as $module){
@@ -129,7 +129,7 @@ if($localModules[0] == ""){
 		foreach($moduleArray as $module) echo $module;
 		echo "</table>";
 	}else{
-		echo "<center>There are no infusions installed on this device. Records show that there are some intsalled to a USB.<br />Please insert it to access the infusions again.</center>";
+		echo "<center>There are no infusions installed on this device. Records show that there are some installed to a USB.<br />Please insert it to access the infusions again.</center>";
 	}
 }
 

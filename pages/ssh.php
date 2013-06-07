@@ -29,7 +29,7 @@ if (isset($_GET[generatekey])) {
         }
 
 if (isset($_GET[connect])) {
-        if (exec("ps aux | grep [s]sh | grep -v -e ssh.php | grep -v grep") == "") {
+        if (exec("ps | grep ssh | grep -v -e ssh.php | grep -v grep") == "") {
                 exec("echo /pineapple/ssh/ssh-connect.sh | at now");
                 sleep(2);
         } else {
@@ -37,9 +37,9 @@ if (isset($_GET[connect])) {
 }
 
 if (isset($_GET[disconnect])) {
-        if (exec("ps aux | grep [s]sh | grep -v -e ssh.php | grep -v grep") == "") {
+        if (exec("ps | grep ssh | grep -v -e ssh.php | grep -v grep") == "") {
         } else {
-                exec("kill `ps aux | grep -v -e ssh.php | awk '/[s]sh/{print $1}'`");
+                exec("kill `ps | grep -v -e ssh.php | awk '/[s]sh/{print $1}'`");
                 sleep(2);
         }
 }
@@ -90,7 +90,7 @@ echo $strings["ssh-boot"]." <font color=\"lime\"><b>".$strings["ssh-enabled"]."<
 if (exec("grep ssh-keepalive.sh /etc/crontabs/root") == "") {
 echo $strings["ssh-persist"]." <font color='red'><b>".$strings["ssh-disabled"]."</b></font>. | <a href='index.php?ssh&enablekeepalive&enable'><b>".$strings["ssh-enable"]."</b></a><br />";
 } else { echo $strings["ssh-persist"]." <font color='lime'><b>".$strings["ssh-enabled"]."</b></font>.&nbsp; | <a href='index.php?ssh&disablekeepalive'><b>".$strings["ssh-disable"]."</b></a><br />"; }
-if (exec("ps aux | grep [s]sh | grep -v -e ssh.php | grep -v grep") == "") {
+if (exec("ps | grep ssh | grep -v -e ssh.php | grep -v grep") == "") {
          echo $strings["ssh-session"]." <font color=\"red\"><b>".$strings["ssh-disconnected"]."</b></font> | <a href=\"index.php?ssh&connect\"><b>".$strings["ssh-connect"]."</b></a><br /><br />";
 } else {
         echo $strings["ssh-session"]." <font color=\"lime\"><b>".$strings["ssh-connected"]."</b></font>. &nbsp; | <a href=\"index.php?ssh&disconnect\"><b>".$strings["ssh-disconnect"]."</b></a><br /><br />";
@@ -111,9 +111,8 @@ if (exec("ps aux | grep [s]sh | grep -v -e ssh.php | grep -v grep") == "") {
 <div class=contentTitle><?=$strings["ssh-connectCommand"]?></div>
 <div class=contentContent>
 <?php
-$filename = "/pineapple/ssh/ssh-connect.sh";
-  $fh = fopen($filename, "r") or die("Could not open file! Empty?");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("/pineapple/ssh/ssh-connect.sh", "r") or die("Could not open file! Empty?");
+  $data = fread($fh, filesize("/pineapple/ssh/ssh-connect.sh")) or die("Could not read file!");
   fclose($fh);
  echo "<form action='index.php?ssh' method= 'post' ><input type='hidden' name='filename' value='ssh/ssh-connect.sh'>
 <input type='text' name='newdata' style='width:100%' value='$data' /><center><input type='submit' value='".$strings["ssh-connectCommand-button"]."'></form>";
@@ -137,13 +136,11 @@ echo "<small>".$strings["ssh-publicKey-note"]."</small><br /><br />";
 <div class=contentTitle><?=$strings["ssh-knownHosts"]?></div>
 <div class=contentContent>
 <?php
-
-$filename = "/root/.ssh/known_hosts";
-$fh = fopen($filename, "r") or die("Could not open file!");
-$data = fread($fh, filesize($filename)) or die("Could not read file!");
+$fh = fopen("/root/.ssh/known_hosts", "r") or die("Could not open file!");
+$data = fread($fh, filesize("/root/.ssh/known_hosts")) or die("Could not read file!");
 fclose($fh);
 echo "
-<form action='$_SERVER[php_self]' method= 'post' >
+<form action='#' method= 'post' >
 <textarea name='newdata' rows='8' style='min-width:100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='/root/.ssh/known_hosts'>
 <center><input type='submit' value='".$strings["ssh-knownHosts-button"]."'>

@@ -20,9 +20,7 @@ if(isset($_GET[kill])){
 <?php echo $message; ?>
 <pre>
 <?php
-
-$cmd = "free";
-exec ($cmd, $output);
+exec ("free", $output);
 foreach($output as $outputline) {
 echo ("$outputline\n");}
 $output = "";
@@ -37,9 +35,7 @@ $output = "";
 <div class=contentContent>
 <pre>
 <?php
-
-$cmd = "df -h";
-exec ($cmd, $output);
+exec ("df -h", $output);
 foreach($output as $outputline) {
 echo ("$outputline\n");}
 $output = "";
@@ -51,10 +47,11 @@ $output = "";
 <div class="contentTitle"><?=$strings["resources-lsusb"]?></div>
 <div class="contentContent">
 <?php
-$exec = exec("lsusb", $return);
-foreach ($return as $line) {
-echo("$line <br />");
+exec("lsusb", $output);
+foreach($output as $outputline) {
+	echo ("$outputline\n");
 }
+$output = "";
 ?>
 
 </div><br /><br />
@@ -65,8 +62,7 @@ echo("$line <br />");
 <pre>
 <?php
 
-$cmd = "ps";
-exec ($cmd, $output);
+exec ("ps", $output);
 foreach($output as $line){
         $lineArray = explode(" ", trim($line));
         $pid = $lineArray[0];

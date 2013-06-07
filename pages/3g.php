@@ -93,10 +93,10 @@ echo "<br /><a href=\"index.php?3g&force\"><b>".$strings["3g-force"]."</b></a> "
 <div class=contentTitle><?=$strings["3g-usbConnections"]?></div>
 <div class=contentContent>
 <?php
-$exec = exec("lsusb", $return);
-foreach ($return as $line) {
-echo("$line <br />");
-}
+exec("lsusb", $return);
+foreach($output as $outputline) {
+echo ("$outputline\n");}
+$output = "";
 ?>
 
 </div><br /><br />
@@ -104,11 +104,10 @@ echo("$line <br />");
 <div class=contentTitle><?=$strings["3g-config-title"]?></div>
 <div class=contentContent>
 <?php
-$filename = "/pineapple/3g/3g.sh";
-  $fh = fopen($filename, "r") or die("Could not open file!");
-  $data = fread($fh, filesize($filename)) or die("Could not read file!");
+  $fh = fopen("/pineapple/3g/3g.sh", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("/pineapple/3g/3g.sh")) or die("Could not read file!");
   fclose($fh);
- echo "<form action='$_SERVER[php_self]' method= 'post' >
+ echo "<form action='#' method= 'post' >
 <textarea name='newdata' cols='140' rows='20' style='max-width: 100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
 <input type='hidden' name='filename' value='/pineapple/3g/3g.sh'>
 <br><center><input type='submit' value='".$strings["3g-config-button"]."'>
@@ -120,10 +119,11 @@ $filename = "/pineapple/3g/3g.sh";
 <div class=contentTitle><?=$strings["3g-interfaces"]?></div>
 <div class=contentContent>
 <pre>
-<? $cmd="ifconfig";
-exec ($cmd, $output);
+<?
+exec ("ifconfig", $output);
 foreach($output as $outputline) {
 echo ("$outputline\n");}
+$output = "";
 ?>
 </pre>
 </div><br /><br />
@@ -132,8 +132,5 @@ echo ("$outputline\n");}
 <div class=contentContent><pre>
 <?=$strings["3g-help-content"]?>
 </pre></div><br /><br />
-
-
-
 
 </div>
