@@ -1,7 +1,7 @@
 <?php
 if(!isset($strings)){
 	$language = trim(file_get_contents("/opt/pwnpad/web-interface/includes/languages/language"));
-	$version = trim(file_get_contents("/opt/pwnpad/web-interface/includes/lwversion"));
+	$version = trim(file_get_contents("/opt/pwnpad/web-interface/includes/fwversion"));
 	$languageFile = "/opt/pwnpad/web-interface/includes/languages/".$language."-".$version.".php";
 	if(file_exists($languageFile)) require($languageFile);
 	else require("/opt/pwnpad/web-interface/includes/languages/english-".$version.".php");
