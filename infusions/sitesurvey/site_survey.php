@@ -23,7 +23,7 @@ require("site_survey_vars.php");
 	$(document).ready(function(){ init(); });
 </script>
 
-<?php if(file_exists("/pineapple/includes/navbar.php")) require('/pineapple/includes/navbar.php'); ?>
+<?php if(file_exists("../includes/navbar.php")) require('/pineapple/includes/navbar.php'); ?>
 
 <p id="version">v<?php echo $module_version; ?></p>
 

@@ -57,7 +57,7 @@
     {
 
       $message = "<font color=lime>".$strings["upgrade-working"]."</font><br /><img src=\"includes/upgrade.gif\">";
-      exec("echo \"<?php echo 'working'; ?>\" > /pineapple/upgrade/upgradeStatus.php");
+      exec("echo \"<?php echo 'working'; ?>\" > ../upgrade/upgradeStatus.php");
       echo "
             <script type='text/javascript' src='includes/jquery.min.js'></script>
             <script type='text/javascript'>
@@ -91,7 +91,7 @@
     $connection = @file_get_contents("http://cloud.wifipineapple.com/ip.php");
     if(trim($connection) != ""){
       echo "<font color=lime>".$strings["upgrade-ota-downloading"]."</font><br /><br />";
-      exec("echo \"<?php echo 'working'; ?>\" > /pineapple/upgrade/otaStatus.php");
+      exec("echo \"<?php echo 'working'; ?>\" > ../upgrade/otaStatus.php");
       echo "
             <script  type='text/javascript' src='includes/jquery.min.js'></script>
             <script type='text/javascript'>
@@ -207,7 +207,7 @@
       else
       {
         $message = "<font color=lime>".$strings["upgrade-working"]."</font><br /><img src=\"includes/upgrade.gif\">";
-        exec("echo \"<?php echo 'working'; ?>\" > /pineapple/upgrade/upgradeStatus.php");
+        exec("echo \"<?php echo 'working'; ?>\" > ../upgrade/upgradeStatus.php");
         echo "
               <script  type='text/javascript' src='includes/jquery.min.js'></script>
               <script type='text/javascript'>

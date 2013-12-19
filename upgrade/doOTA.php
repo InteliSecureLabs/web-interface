@@ -1,3 +1,3 @@
 <?php
-	exec("echo \"sh /pineapple/upgrade/doOTA.sh\" | at now");
+	exec("echo \"sh ../upgrade/doOTA.sh\" | at now");
 ?>

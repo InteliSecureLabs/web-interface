@@ -1,10 +1,10 @@
 <?php
 if(!isset($strings)){
-	$language = trim(file_get_contents("/pineapple/includes/languages/language"));
-	$version = trim(file_get_contents("/pineapple/includes/fwversion"));
-	$languageFile = "/pineapple/includes/languages/".$language."-".$version.".php";
+	$language = trim(file_get_contents("../includes/languages/language"));
+	$version = trim(file_get_contents("../includes/fwversion"));
+	$languageFile = "../includes/languages/".$language."-".$version.".php";
 	if(file_exists($languageFile)) require($languageFile);
-	else require("/pineapple/includes/languages/english-".$version.".php");
+	else require("../includes/languages/english-".$version.".php");
 }
 ?>
 
@@ -23,7 +23,7 @@ if(!isset($strings)){
 <a href="/index.php?about"><font color="black"><b><?=$strings["navbar-about"]?></b></font></a> |
 
 <?php
-$moduleLinks = explode("\n", file_get_contents("/pineapple/includes/moduleNav"));
+$moduleLinks = explode("\n", file_get_contents("../includes/moduleNav"));
 if(trim($moduleLinks != "")){
         echo "<br />";
         $first = true;

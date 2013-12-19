@@ -4,9 +4,9 @@ $updateWarning = false;
 
 #Check if directory OR moduleList file does not exist.
 #Prevent errors.
-if(!file_exists("/pineapple/infusions/") || !file_exists("/pineapple/infusions/moduleList")){
-        exec("mkdir -p /pineapple/infusions/");
-        exec("touch /pineapple/infusions/moduleList");
+if(!file_exists("../infusions/") || !file_exists("/pineapple/infusions/moduleList")){
+        exec("mkdir -p ../infusions/");
+        exec("touch ../infusions/moduleList");
 }
 
 ?>
@@ -95,9 +95,9 @@ if($localModules[0] == ""){
 		$module = explode("|", $module);
 		
 		if($module[2] == "internal"){
-			$size = dirSize("/pineapple/infusions/".$module[0]);
+			$size = dirSize("../infusions/".$module[0]);
 		}else{
-			$size = dirSize("/pineapple/infusions/usbInfusions/".$module[0]);
+			$size = dirSize("../infusions/usbInfusions/".$module[0]);
 		}
 		if($module[4] == ""){
 			$supportLink = "";
@@ -157,8 +157,8 @@ else{
 function isPinned($name, $dest, $startPage){
         if($dest == "internal") $link = "<b><a href='/infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
         else $link = "<b><a href='/infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-	$links = explode("\n",file_get_contents("/pineapple/includes/moduleNav"));
-	if(exec("cat /pineapple/includes/moduleNav | grep '$link'") != "")return true;
+	$links = explode("\n",file_get_contents("../includes/moduleNav"));
+	if(exec("cat ../includes/moduleNav | grep '$link'") != "")return true;
 	return false;
 
 }
@@ -166,12 +166,12 @@ function isPinned($name, $dest, $startPage){
 function pinToNav($name, $dest, $startPage){
 	if($dest == "internal") $link = "<b><a href='/infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
 	else $link = "<b><a href='/infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-	exec("echo '$link' >> /pineapple/includes/moduleNav");
+	exec("echo '$link' >> ../includes/moduleNav");
 
 }
 
 function unpinFromNav($name){
-	exec("sed -i '/$name/d' /pineapple/includes/moduleNav");
+	exec("sed -i '/$name/d' ../includes/moduleNav");
 
 }
 
@@ -181,9 +181,9 @@ function dirSize($path){
 
 function removeModule($name, $version, $dest){
 
-	exec("sed -i '/".$name."|".$version."/d' /pineapple/infusions/moduleList");
-	if($dest == "internal") exec("rm -rf /pineapple/infusions/".$name);
-	else exec("rm -rf /pineapple/infusions/usbInfusions/".$name);
+	exec("sed -i '/".$name."|".$version."/d' ../infusions/moduleList");
+	if($dest == "internal") exec("rm -rf ../infusions/".$name);
+	else exec("rm -rf ../infusions/usbInfusions/".$name);
 	unpinFromNav($name);
 
 }

@@ -42,7 +42,7 @@ if(isset($_GET[report])){
 <pre>
 <?php
         echo "<small><font color='lime'>".$strings["status-reportWarning"]."</font></small><br /><br />";
-        $cmd="/pineapple/karma/karmaclients.sh";
+        $cmd="../karma/karmaclients.sh";
         exec("$cmd 2>&1", $output);
         foreach($output as $outputline) {
         	$o2=htmlentities($outputline);

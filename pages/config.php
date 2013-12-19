@@ -59,7 +59,7 @@ if(isset($_GET[updateLanguages])){
         if(trim($connection) != ""){
                 exec("wget -O /tmp/languages.tar.gz \"http://cloud.wifipineapple.com/?downloads&languages=$version\"");
                 exec("tar -C /tmp/ -zxvf /tmp/languages.tar.gz");
-                exec("cp /tmp/downloads/* /pineapple/includes/languages/");
+                exec("cp /tmp/downloads/* ../includes/languages/");
                 $languageMessage = "<font color=lime>".$strings["config-language-success"]."</font><br /><br />";
         }else $languageMessage = "<font color=red>".$strings["config-language-error"]."</font><br /><br />";
 }

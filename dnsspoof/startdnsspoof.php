@@ -1,6 +1,6 @@
 <?php
-exec ("echo '' > /pineapple/logs/dnsspoof.log");
-exec ("echo /pineapple/dnsspoof/dnsspoof.sh | at now");
+exec ("echo '' > ../logs/dnsspoof.log");
+exec ("echo ../dnsspoof/dnsspoof.sh | at now");
 ?>
 <html><head>
 <meta http-equiv="refresh" content="0; url=/">

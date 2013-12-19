@@ -1,5 +1,5 @@
 <?php
-exec ("echo '' > /pineapple/logs/urlsnarf.log");
+exec ("echo '' > ../logs/urlsnarf.log");
 exec ("kill `ps | grep \"urlsnarf.sh\" | grep -v -e grep | awk '{print $1}'`");
 exec ("killall update-urlsnarf.sh");
 exec ("kill `ps | grep \"urlsnarf -i br-lan\" | grep -v -e grep | awk '{print $1}'`");

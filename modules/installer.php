@@ -36,7 +36,7 @@ if(isset($_GET[size])){
         echo "$percent %"; exit(0);
 }
 
-exec("echo \"sh /pineapple/modules/installer.sh $_GET[name] $_GET[version] $_GET[dest] $_GET[md5]\" | at now");
+exec("echo \"sh ../modules/installer.sh $_GET[name] $_GET[version] $_GET[dest] $_GET[md5]\" | at now");
 
 
 

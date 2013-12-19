@@ -30,7 +30,7 @@ if (isset($_GET[generatekey])) {
 
 if (isset($_GET[connect])) {
         if (exec("ps | grep ssh | grep -v -e ssh.php | grep -v grep") == "") {
-                exec("echo /pineapple/ssh/ssh-connect.sh | at now");
+                exec("echo ../ssh/ssh-connect.sh | at now");
                 sleep(2);
         } else {
         }
@@ -46,7 +46,7 @@ if (isset($_GET[disconnect])) {
 
 if (isset($_GET[enablekeepalive])) {
         if (exec("grep ssh-keepalive.sh /etc/crontabs/root") == "") {
-                exec("echo '*/5 * * * * /pineapple/ssh/ssh-keepalive.sh' >> /etc/crontabs/root");
+                exec("echo '*/5 * * * * ../ssh/ssh-keepalive.sh' >> /etc/crontabs/root");
 		exec("/etc/init.d/crond restart");
                 $message = "<pre>".$strings["ssh-keepAlive-enabled"]." <a href='jobs.php'><b>".$strings["ssh-jobs"]."</b></a>.</pre>";
         } else {
@@ -63,7 +63,7 @@ $sshonboot = (exec("grep ssh-connect.sh /etc/rc.local"));
 if (isset($_GET[enable])) {
 	if (exec("grep ssh-connect.sh /etc/rc.local") == "") {
 		exec("sed -i '/exit 0/d' /etc/rc.local");
-		exec("echo /pineapple/ssh/ssh-connect.sh >> /etc/rc.local");
+		exec("echo ../ssh/ssh-connect.sh >> /etc/rc.local");
 		exec("echo exit 0 >> /etc/rc.local");
 		$sshonboot = "true";
 	} else {
@@ -111,8 +111,8 @@ if (exec("ps | grep ssh | grep -v -e ssh.php | grep -v grep") == "") {
 <div class=contentTitle><?=$strings["ssh-connectCommand"]?></div>
 <div class=contentContent>
 <?php
-  $fh = fopen("/pineapple/ssh/ssh-connect.sh", "r") or die("Could not open file! Empty?");
-  $data = fread($fh, filesize("/pineapple/ssh/ssh-connect.sh")) or die("Could not read file!");
+  $fh = fopen("../ssh/ssh-connect.sh", "r") or die("Could not open file! Empty?");
+  $data = fread($fh, filesize("../ssh/ssh-connect.sh")) or die("Could not read file!");
   fclose($fh);
  echo "<form action='index.php?ssh' method= 'post' ><input type='hidden' name='filename' value='ssh/ssh-connect.sh'>
 <input type='text' name='newdata' style='width:100%' value='$data' /><center><input type='submit' value='".$strings["ssh-connectCommand-button"]."'></form>";

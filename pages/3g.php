@@ -8,11 +8,11 @@ echo '<script type="text/javascript">
 
 if (isset($_GET[force])) {
 $message = "<pre>".$strings["3g-force-message"]." <a href=\"index.php?logs\"><b><font color=white>".$strings["3g-force-logs"]."</font></b></a> ".$strings["3g-force-details"]."</pre>";
-exec("echo /pineapple/3g/3g.sh | at now");}
+exec("echo ../3g/3g.sh | at now");}
 
 if (isset($_GET[enablekeepalive])) {
         if (exec("grep 3g-keepalive.sh /etc/crontabs/root") == "") {
-                exec("echo '*/5 * * * * /pineapple/3g/3g-keepalive.sh' >> /etc/crontabs/root");
+                exec("echo '*/5 * * * * ../3g/3g-keepalive.sh' >> /etc/crontabs/root");
 		exec("/etc/init.d/crond restart");
                 $message = "<pre>".$strings["3g-keepAlive-message"]." <a href='jobs.php'><b>".$strings["3g-keepAlive-jobs"]."</b></a>.</pre>";
         } else {
@@ -32,7 +32,7 @@ if (isset($_GET[enable])) {
 
         if (exec("grep 3g.sh /etc/rc.local") == "") {
                 exec("sed -i '/exit 0/d' /etc/rc.local");
-                exec("echo /pineapple/3g/3g.sh >> /etc/rc.local");
+                exec("echo ../3g/3g.sh >> /etc/rc.local");
                 exec("echo exit 0 >> /etc/rc.local");
                 $auto3g = "true";
         } else {
@@ -104,12 +104,12 @@ $output = "";
 <div class=contentTitle><?=$strings["3g-config-title"]?></div>
 <div class=contentContent>
 <?php
-  $fh = fopen("/pineapple/3g/3g.sh", "r") or die("Could not open file!");
-  $data = fread($fh, filesize("/pineapple/3g/3g.sh")) or die("Could not read file!");
+  $fh = fopen("../3g/3g.sh", "r") or die("Could not open file!");
+  $data = fread($fh, filesize("../3g/3g.sh")) or die("Could not read file!");
   fclose($fh);
  echo "<form action='#' method= 'post' >
 <textarea name='newdata' cols='140' rows='20' style='max-width: 100%; background-color:black; color:white; border-style:dashed;'>$data</textarea>
-<input type='hidden' name='filename' value='/pineapple/3g/3g.sh'>
+<input type='hidden' name='filename' value='../3g/3g.sh'>
 <br><center><input type='submit' value='".$strings["3g-config-button"]."'>
 </form>";
 ?>

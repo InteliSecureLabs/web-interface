@@ -11,7 +11,7 @@ $is_dnsspoof_installed = exec("which dnsspoof") != "" ? 1 : 0;
 $is_dnsspoof_running = exec("ps | grep dnsspoof | grep -v -e grep | grep -v -e php") != "" ? 1 : 0;
 $is_dnsspoof_onboot = exec("cat /etc/rc.local | grep dnsspoof/autostart.sh") != "" ? 1 : 0;
 
-$hosts_path = "/pineapple/config/spoofhost";
+$hosts_path = "../config/spoofhost";
 
 $fake_files_installed = file_exists("/www/ncsi.txt") && file_exists("/www/library/test/success.html") ? 1 : 0;
 
