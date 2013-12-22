@@ -15,7 +15,7 @@ sed -i 's/"md5"/"working"/g' /opt/pwnpad/web-interface/modules/installer.php
 
 #Remove any left-overs.
 rm -rf ../usb/tmp/infusions
-rm -rf /tmp/infusions
+rm -rf ../tmp/infusions
 
 #Download infusion. Do the magic.
 if [[ $dest == "usb" ]]
@@ -44,24 +44,24 @@ if [[ $dest == "usb" ]]
 				exit
 		fi
 	else
-		mkdir -p /tmp/infusions
-		wget -O /tmp/infusions/mk4-module-$name-$version.tar.gz "http://cloud.wifipineapple.com/index.php?downloads&downloadModule=$name&moduleVersion=$version"
-		if [[ $(md5sum /tmp/infusions/mk4-module-$name-$version.tar.gz | head -c 33) == $md5 ]]
+		mkdir -p ../tmp/infusions
+		wget -O ../tmp/infusions/mk4-module-$name-$version.tar.gz "http://cloud.wifipineapple.com/index.php?downloads&downloadModule=$name&moduleVersion=$version"
+		if [[ $(md5sum ../tmp/infusions/mk4-module-$name-$version.tar.gz | head -c 33) == $md5 ]]
 			then
-				tar -xzf /tmp/infusions/mk4-module-$name-$version.tar.gz -C /tmp/infusions/
+				tar -xzf ../tmp/infusions/mk4-module-$name-$version.tar.gz -C ../tmp/infusions/
 					#get config stuff
-					config=$(cat /tmp/infusions/mk4-module-$name-$version/module.conf)
+					config=$(cat ../tmp/infusions/mk4-module-$name-$version/module.conf)
 					confName=$(echo "$config" | grep -i name | awk '{split($0,array,"=")} END{print array[2]}')
 					confVersion=$(echo "$config" | grep -i version | awk '{split($0,array,"=")} END{print array[2]}')
 					confAuthor=$(echo "$config" | grep -i author | awk '{split($0,array,"=")} END{print array[2]}')
 					confStartPage=$(echo "$config" | grep -i startPage | awk '{split($0,array,"=")} END{print array[2]}')
 					confSupportLink=$(echo "$config" | grep -i supportLink | sed 's/supportLink=//g')
-				mv /tmp/infusions/mk4-module-$name-$version/$confName /opt/pwnpad/web-interface/infusions/
-				rm -rf /tmp/infusions
+				mv ../tmp/infusions/mk4-module-$name-$version/$confName /opt/pwnpad/web-interface/infusions/
+				rm -rf ../tmp/infusions
 				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /opt/pwnpad/web-interface/infusions/moduleList
 			else
 				sed -i 's/working/md5/g' /opt/pwnpad/web-interface/modules/installer.php
-				rm -rf /tmp/infusions
+				rm -rf ../tmp/infusions
 				exit
 		fi
 fi

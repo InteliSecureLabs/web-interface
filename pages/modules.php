@@ -4,7 +4,7 @@ $updateWarning = false;
 
 #Check if directory OR moduleList file does not exist.
 #Prevent errors.
-if(!file_exists("../infusions/") || !file_exists("/pineapple/infusions/moduleList")){
+if(!file_exists("../infusions/") || !file_exists("../infusions/moduleList")){
         exec("mkdir -p ../infusions/");
         exec("touch ../infusions/moduleList");
 }
@@ -110,10 +110,10 @@ if($localModules[0] == ""){
 			$pinLink = "<a href='index.php?modules&pin=$module[0]&dest=$module[2]&startPage=$module[3]'>".$strings["modules-links-pin"]."</a>";
 		}
 		if($module[2] == "internal"){
-			$launchLink = "<a href='/infusions/".$module[0]."/".$module[3]."'>".$module[0]."</a>";
+			$launchLink = "<a href='../infusions/".$module[0]."/".$module[3]."'>".$module[0]."</a>";
 		}else{
 			$usbModules = true;
-			$launchLink = "<a href='/infusions/usbInfusions/".$module[0]."/".$module[3]."'>".$module[0]."</a>";
+			$launchLink = "<a href='../infusions/usbInfusions/".$module[0]."/".$module[3]."'>".$module[0]."</a>";
 		}
 		$removeLink = "<a href='index.php?modules&remove=".$module[0]."&version=".$module[1]."&dest=".$module[2]."'>".$strings["modules-links-remove"]."</a>";
 		
@@ -155,8 +155,8 @@ else{
 <?php
 
 function isPinned($name, $dest, $startPage){
-        if($dest == "internal") $link = "<b><a href='/infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-        else $link = "<b><a href='/infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
+        if($dest == "internal") $link = "<b><a href='../infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
+        else $link = "<b><a href='../infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
 	$links = explode("\n",file_get_contents("../includes/moduleNav"));
 	if(exec("cat ../includes/moduleNav | grep '$link'") != "")return true;
 	return false;
@@ -164,8 +164,8 @@ function isPinned($name, $dest, $startPage){
 }
 
 function pinToNav($name, $dest, $startPage){
-	if($dest == "internal") $link = "<b><a href='/infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-	else $link = "<b><a href='/infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
+	if($dest == "internal") $link = "<b><a href='../infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
+	else $link = "<b><a href='../infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
 	exec("echo '$link' >> ../includes/moduleNav");
 
 }
