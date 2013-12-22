@@ -9,8 +9,8 @@ dest=$3
 md5=$4
 
 #Tell the installer that it is working.
-sed -i 's/"done"/"working"/g' /opt/pwnpad/web-interface/modules/installer.php
-sed -i 's/"md5"/"working"/g' /opt/pwnpad/web-interface/modules/installer.php
+sed -i 's/"done"/"working"/g' installer.php
+sed -i 's/"md5"/"working"/g' installer.php
 
 
 #Remove any left-overs.
@@ -24,9 +24,9 @@ if [[ $dest == "usb" ]]
 		wget -O ../usb/tmp/infusions/mk4-module-$name-$version.tar.gz "http://cloud.wifipineapple.com/index.php?downloads&downloadModule=$name&moduleVersion=$version"
 		if [[ $(md5sum ../usb/tmp/infusions/mk4-module-$name-$version.tar.gz | head -c 33) == $md5 ]]
 			then
-				mkdir -p /usb/infusions/
+				mkdir -p ../usb/infusions/
 				rm /opt/pwnpad/web-interface/infusions/usbModules
-				ln -s /usb/infusions /opt/pwnpad/web-interface/infusions/usbInfusions
+				ln -s ../usb/infusions /opt/pwnpad/web-interface/infusions/usbInfusions
 				tar -xzf ../usb/tmp/infusions/mk4-module-$name-$version.tar.gz -C ../usb/tmp/infusions/
 					#get config stuff
 					config=$(cat ../usb/tmp/infusions/mk4-module-$name-$version/module.conf)
@@ -39,7 +39,7 @@ if [[ $dest == "usb" ]]
 				rm -rf ../usb/tmp/infusions
 				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /opt/pwnpad/web-interface/infusions/moduleList
 			else
-				sed -i 's/working/md5/g' /opt/pwnpad/web-interface/modules/installer.php
+				sed -i 's/working/md5/g' installer.php
 				rm -rf ../usb/tmp/infusions
 				exit
 		fi
@@ -60,7 +60,7 @@ if [[ $dest == "usb" ]]
 				rm -rf ../tmp/infusions
 				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /opt/pwnpad/web-interface/infusions/moduleList
 			else
-				sed -i 's/working/md5/g' /opt/pwnpad/web-interface/modules/installer.php
+				sed -i 's/working/md5/g' installer.php
 				rm -rf ../tmp/infusions
 				exit
 		fi
@@ -68,4 +68,4 @@ fi
 
 
 #Tell the installer that it is done
-sed -i 's/working/done/g' /opt/pwnpad/web-interface/modules/installer.php
+sed -i 's/working/done/g' installer.php
