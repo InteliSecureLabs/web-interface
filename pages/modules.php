@@ -4,9 +4,9 @@ $updateWarning = false;
 
 #Check if directory OR moduleList file does not exist.
 #Prevent errors.
-if(!file_exists("../infusions/") || !file_exists("../infusions/moduleList")){
-        exec("mkdir -p ../infusions/");
-        exec("touch ../infusions/moduleList");
+if(!file_exists("/opt/pwnpad/web-interface/infusions/") || !file_exists("/opt/pwnpad/web-interface/infusions/moduleList")){
+        exec("mkdir -p /opt/pwnpad/web-interface/infusions/");
+        exec("touch /opt/pwnpad/web-interface/infusions/moduleList");
 }
 
 ?>
@@ -95,9 +95,9 @@ if($localModules[0] == ""){
 		$module = explode("|", $module);
 		
 		if($module[2] == "internal"){
-			$size = dirSize("../infusions/".$module[0]);
+			$size = dirSize("/opt/pwnpad/web-interface/infusions/".$module[0]);
 		}else{
-			$size = dirSize("../infusions/usbInfusions/".$module[0]);
+			$size = dirSize("/opt/pwnpad/web-interface/infusions/usbInfusions/".$module[0]);
 		}
 		if($module[4] == ""){
 			$supportLink = "";
@@ -157,7 +157,7 @@ else{
 function isPinned($name, $dest, $startPage){
         if($dest == "internal") $link = "<b><a href='../infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
         else $link = "<b><a href='../infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-	$links = explode("\n",file_get_contents("../includes/moduleNav"));
+	$links = explode("\n",file_get_contents("/includes/moduleNav"));
 	if(exec("cat ../includes/moduleNav | grep '$link'") != "")return true;
 	return false;
 
@@ -171,7 +171,7 @@ function pinToNav($name, $dest, $startPage){
 }
 
 function unpinFromNav($name){
-	exec("sed -i '/$name/d' ../includes/moduleNav");
+	exec("sed -i '/$name/d' /opt/pwnpad/web-interface/includes/moduleNav");
 
 }
 
