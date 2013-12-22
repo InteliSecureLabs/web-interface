@@ -7,3 +7,15 @@ sitesurvey|2.6|internal|site_survey.php|n/a
 status|1.4|internal|status.php|n/a
 randomroll|3.2|internal|randomroll.php|n/a
 dnsspoof|1.6|internal|dnsspoof.php|n/a
+jammer|3.1|internal|jammer.php|http://forums.hak5.org/index.php?showtopic=26559
+reaver|0.4|internal|reaver.php|http://cloud.wifipineapple.com/wiki/doku.php?id=reaver
+uwui|1.0|internal|uwui.php|http://forums.hak5.org/index.php?showtopic=28115
+logcheck|2.3|internal|logcheck.php|http://forums.hak5.org/index.php?showtopic=26390
+blacklister|2.7|internal|blacklister.php|http://forums.hak5.org/index.php?/topic/26691-blacklister/
+bartender|2.2|internal|bartender.php|
+smser|1.1|internal|SMSer.php|http://forums.hak5.org/index.php?/topic/29383-smser-texting-pineapple/
+networkmanager|1.9|internal|networkmanager.php|http://forums.hak5.org/index.php?showtopic=27113
+monitor|2.3|internal|monitor.php|http://forums.hak5.org/index.php?showtopic=26076
+eviljava|2.4|internal|index.php|http://forums.hak5.org/index.php?showtopic=29080
+mitm|1.3|internal|mitm.php|http://forums.hak5.org/index.php?showtopic=28281
+keylogger|1.1|internal|keylogger.php|http://forums.hak5.org/index.php?showtopic=28666

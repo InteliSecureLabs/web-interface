@@ -1,0 +1,122 @@
+* {
+	font-family: courier;
+	font-size: 13px;
+}
+
+#version {
+	text-align: right;
+	margin: 5px 10px -12px;
+}
+
+select {
+	background-color: black;
+	border-style: none;
+	color: green;
+}
+
+input {
+	background-color: black;
+	color: green;
+	border-style: none;
+}
+
+textarea {
+	background-color: black;
+	color: green;
+	border-style: none;
+	height: 250px;
+	width: 100%;
+}
+
+
+.grid {
+	padding: 0;
+	border-spacing: 1px;
+	border-collapse: separate;
+	color: black;
+}
+.grid td {
+	padding: 2px;
+	margin: 0px;
+	color: black;
+}
+
+.tab ul {
+	margin-left: -40px;
+}
+.tab li {
+	list-style: none;
+	float: left;
+}
+.tab ul a {
+	display: block;
+	padding: 6px 10px;
+	text-decoration: none!important;
+	margin: 1px;
+	margin-left: 0;
+	color: #FFF;
+	background: green;
+}
+.tab ul a:hover {
+	color: #FFF;
+	background: #111;
+}
+.tab ul a.selected {
+	margin-bottom: 0;
+	color: #000;
+	background: snow;
+	border-bottom: 1px solid snow;
+	cursor: default;
+}
+.tab div {
+	padding: 10px 5px;
+	clear: left;
+	background: snow;
+	width: 80%;
+	color: black;
+}
+.tab div a {
+	color: #000;
+	font-weight: bold;
+}
+
+div.my_wrapper {
+	width: 100%;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+div.my_left_box {
+	float: left;
+	clear: none;
+	width: 28%;
+}
+
+div.my_right_box {
+	float: right;
+	clear: none;
+	width: 70%;
+}
+
+#list_fieldset {
+	min-height: 264px;
+}
+
+#list_blacklist ul, #list_whitelist ul {
+	list-style: none outside none;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+#list_blacklist li, #list_whitelist li {
+	float: none;
+	cursor: pointer;
+	margin: 0 0 5px;
+	padding: 0 0 5px;
+}
+
+#form_conf {
+	margin: 0;
+	padding: 0;
+}

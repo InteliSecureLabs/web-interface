@@ -1,0 +1,8 @@
+# Ignore crond log
+cron.info
+
+# Cleanup script
+CLEANUP
+
+# SSMTP log
+mail.info
