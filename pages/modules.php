@@ -272,7 +272,7 @@ function getRemoteList(){
 }
 
 function getLocalList(){
-	$localFile = trim(file_get_contents("../infusions/moduleList"));
+	$localFile = trim(file_get_contents("infusions/moduleList"));
 	$modules = explode("\n", $localFile);
 	return $modules;
 }
