@@ -272,7 +272,7 @@ function getRemoteList(){
 }
 
 function getLocalList(){
-	$localFile = trim(file_get_contents("/opt/pwnpad/web-interface/includes/moduleNav"));
+	$localFile = trim(file_get_contents("/opt/pwnpad/web-interface/infusions/moduleList"));
 	$modules = explode("\n", $localFile);
 	return $modules;
 }
