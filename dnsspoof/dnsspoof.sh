@@ -1,2 +1,2 @@
 #!/bin/sh
-dnsspoof -i br-lan -f /pineapple/config/spoofhost > /dev/null 2>/pineapple/logs/dnsspoof.log
+dnsspoof -i br-lan -f ../config/spoofhost > /dev/null 2>../logs/dnsspoof.log

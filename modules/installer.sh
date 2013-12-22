@@ -9,38 +9,38 @@ dest=$3
 md5=$4
 
 #Tell the installer that it is working.
-sed -i 's/"done"/"working"/g' /pineapple/modules/installer.php
-sed -i 's/"md5"/"working"/g' /pineapple/modules/installer.php
+sed -i 's/"done"/"working"/g' /opt/pwnpad/web-interface/modules/installer.php
+sed -i 's/"md5"/"working"/g' /opt/pwnpad/web-interface/modules/installer.php
 
 
 #Remove any left-overs.
-rm -rf /usb/tmp/infusions
+rm -rf ../usb/tmp/infusions
 rm -rf /tmp/infusions
 
 #Download infusion. Do the magic.
 if [[ $dest == "usb" ]]
 	then
-		mkdir -p /usb/tmp/infusions
-		wget -O /usb/tmp/infusions/mk4-module-$name-$version.tar.gz "http://cloud.wifipineapple.com/index.php?downloads&downloadModule=$name&moduleVersion=$version"
-		if [[ $(md5sum /usb/tmp/infusions/mk4-module-$name-$version.tar.gz | head -c 33) == $md5 ]]
+		mkdir -p ../usb/tmp/infusions
+		wget -O ../usb/tmp/infusions/mk4-module-$name-$version.tar.gz "http://cloud.wifipineapple.com/index.php?downloads&downloadModule=$name&moduleVersion=$version"
+		if [[ $(md5sum ../usb/tmp/infusions/mk4-module-$name-$version.tar.gz | head -c 33) == $md5 ]]
 			then
 				mkdir -p /usb/infusions/
-				rm /pineapple/infusions/usbModules
-				ln -s /usb/infusions /pineapple/infusions/usbInfusions
-				tar -xzf /usb/tmp/infusions/mk4-module-$name-$version.tar.gz -C /usb/tmp/infusions/
+				rm /opt/pwnpad/web-interface/infusions/usbModules
+				ln -s /usb/infusions /opt/pwnpad/web-interface/infusions/usbInfusions
+				tar -xzf ../usb/tmp/infusions/mk4-module-$name-$version.tar.gz -C ../usb/tmp/infusions/
 					#get config stuff
-					config=$(cat /usb/tmp/infusions/mk4-module-$name-$version/module.conf)
+					config=$(cat ../usb/tmp/infusions/mk4-module-$name-$version/module.conf)
 					confName=$(echo "$config" | grep -i name | awk '{split($0,array,"=")} END{print array[2]}')
 					confVersion=$(echo "$config" | grep -i version | awk '{split($0,array,"=")} END{print array[2]}')
 					confAuthor=$(echo "$config" | grep -i author | awk '{split($0,array,"=")} END{print array[2]}')
 					confStartPage=$(echo "$config" | grep -i startPage | awk '{split($0,array,"=")} END{print array[2]}')
 					confSupportLink=$(echo "$config" | grep -i supportLink | sed 's/supportLink=//g')
-				mv /usb/tmp/infusions/mk4-module-$name-$version/$confName /usb/infusions/
-				rm -rf /usb/tmp/infusions
-				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /pineapple/infusions/moduleList
+				mv ../usb/tmp/infusions/mk4-module-$name-$version/$confName /usb/infusions/
+				rm -rf ../usb/tmp/infusions
+				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /opt/pwnpad/web-interface/infusions/moduleList
 			else
-				sed -i 's/working/md5/g' /pineapple/modules/installer.php
-				rm -rf /usb/tmp/infusions
+				sed -i 's/working/md5/g' /opt/pwnpad/web-interface/modules/installer.php
+				rm -rf ../usb/tmp/infusions
 				exit
 		fi
 	else
@@ -56,11 +56,11 @@ if [[ $dest == "usb" ]]
 					confAuthor=$(echo "$config" | grep -i author | awk '{split($0,array,"=")} END{print array[2]}')
 					confStartPage=$(echo "$config" | grep -i startPage | awk '{split($0,array,"=")} END{print array[2]}')
 					confSupportLink=$(echo "$config" | grep -i supportLink | sed 's/supportLink=//g')
-				mv /tmp/infusions/mk4-module-$name-$version/$confName /pineapple/infusions/
+				mv /tmp/infusions/mk4-module-$name-$version/$confName /opt/pwnpad/web-interface/infusions/
 				rm -rf /tmp/infusions
-				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /pineapple/infusions/moduleList
+				echo "$confName|$confVersion|$dest|$confStartPage|$confSupportLink" >> /opt/pwnpad/web-interface/infusions/moduleList
 			else
-				sed -i 's/working/md5/g' /pineapple/modules/installer.php
+				sed -i 's/working/md5/g' /opt/pwnpad/web-interface/modules/installer.php
 				rm -rf /tmp/infusions
 				exit
 		fi
@@ -68,4 +68,4 @@ fi
 
 
 #Tell the installer that it is done
-sed -i 's/working/done/g' /pineapple/modules/installer.php
+sed -i 's/working/done/g' /opt/pwnpad/web-interface/modules/installer.php

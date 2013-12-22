@@ -13,10 +13,10 @@ if(isset($_GET[size])){
 
 	if($dest == "usb"){
 		//get size on USB
-		$got = exec("du /usb/tmp/infusions/mk4-module-$name* | awk '{print $1}'");
+		$got = exec("du ../usb/tmp/infusions/mk4-module-$name* | awk '{print $1}'");
 	}else{
 		//get size on internal
-		$got = exec("du /tmp/infusions/mk4-module-$name* | awk '{print $1}'");
+		$got = exec("du ../tmp/infusions/mk4-module-$name* | awk '{print $1}'");
 	}
 
         if($got >= $size){ echo "complete"; exit(0); }
