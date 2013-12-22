@@ -157,8 +157,8 @@ else{
 function isPinned($name, $dest, $startPage){
         if($dest == "internal") $link = "<b><a href='../infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
         else $link = "<b><a href='../infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-	$links = explode("\n",file_get_contents("/includes/moduleNav"));
-	if(exec("cat ../includes/moduleNav | grep '$link'") != "")return true;
+	$links = explode("\n",file_get_contents("/opt/pwnpad/web-interface/includes/moduleNav"));
+	if(exec("cat /opt/pwnpad/web-interface/includes/moduleNav | grep '$link'") != "")return true;
 	return false;
 
 }
@@ -272,7 +272,7 @@ function getRemoteList(){
 }
 
 function getLocalList(){
-	$localFile = trim(file_get_contents("infusions/moduleList"));
+	$localFile = trim(file_get_contents("/opt/pwnpad/web-interface/includes/moduleNav"));
 	$modules = explode("\n", $localFile);
 	return $modules;
 }
