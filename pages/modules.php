@@ -166,7 +166,7 @@ function isPinned($name, $dest, $startPage){
 function pinToNav($name, $dest, $startPage){
 	if($dest == "internal") $link = "<b><a href='../infusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
 	else $link = "<b><a href='../infusions/usbInfusions/".$name."/".$startPage."'><font color=black>$name</font></a></b>";
-	exec("echo '$link' >> ../includes/moduleNav");
+	exec("echo '$link' >> /opt/pwnpad/web-interface/includes/moduleNav");
 
 }
 
