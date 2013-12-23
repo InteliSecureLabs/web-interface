@@ -137,7 +137,7 @@ echo "&nbsp; Stealth <font color=lime><b>".$strings["status-enabled"]."</b></fon
 <div class=sidePanelContent></b>
 <?php
 echo "&nbsp;".$strings["status-poe"]." " . exec("ifconfig br-lan | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'") . "<br />";
-echo "&nbsp;".$strings["status-wan"]." " . exec("ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'") . "<br />";
+echo "&nbsp;".$strings["status-wan"]." " . exec("ifconfig wlan0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'") . "<br />";
 echo $strings["status-public"]." ";
 if (isset($_GET[revealpublic])) {
         $ip = @file_get_contents("http://cloud.wifipineapple.com/ip.php");

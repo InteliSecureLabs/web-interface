@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
     </head>
 <body>
-<?php include("/pineapple/includes/navbar.php"); ?>
+<?php include("/opt/pwnpad/web-interface/includes/navbar.php"); ?>
 <br /><br /><br />
 
 <div class=content>
@@ -117,14 +117,14 @@ Enter a name below and hit "create"!<br /><br />
 <input type=submit name=create value="Create">
 
 </form>
-<small>Once you have created a new infusion, you can start uploading your files to "/pineapple/infusions/bartender/projects/YourInfusionName/"</small>
+<small>Once you have created a new infusion, you can start uploading your files to "/opt/pwnpad/web-interface/infusions/bartender/projects/YourInfusionName/"</small>
 </div>
 <br /><br />
 
 
 <div class=contentTitle>Help</div>
 <div class=contentContent><center>
-To use the Bartender, please register a module developer account at <a href="https://wifipineapple.com/?portal">http://cloud.wifipineapple.com</a>.<br /><br />After having done this, you can start by creating a new Infusion above. Then upload your files to "/pineapple/infusions/bartender/projects/YourInfusionName/".<br /><br />To view your modules, click the launch link above.<br /><br />When you are happy with the way your module looks and works, simply hit the download link and submit the resulting file through the <a href="https://wifipineapple.com/?portal&portal_infusions">Module Submission System</a>.
+To use the Bartender, please register a module developer account at <a href="https://wifipineapple.com/?portal">http://cloud.wifipineapple.com</a>.<br /><br />After having done this, you can start by creating a new Infusion above. Then upload your files to "/opt/pwnpad/web-interface/infusions/bartender/projects/YourInfusionName/".<br /><br />To view your modules, click the launch link above.<br /><br />When you are happy with the way your module looks and works, simply hit the download link and submit the resulting file through the <a href="https://wifipineapple.com/?portal&portal_infusions">Module Submission System</a>.
 </div>
 <small><font color=red>Note: This module is horrible. It will be obsolete very soon which is why development hasn't really continued.
 Apologies to anyone using this.</font></small>

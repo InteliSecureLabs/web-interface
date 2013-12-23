@@ -8,7 +8,7 @@ logger "3G: Keep-Alive Script Executed"
 
 if ! ( ifconfig 3g-wan2); then
 	logger "3G: Interface 3g-wan2 seems down. Attempting 3g connect script again"
-	/pineapple/3g/3g.sh
+	/opt/pwnpad/web-interface/3g/3g.sh
 else
 	logger "3G: Interface 3g-wan2 seems up"
 

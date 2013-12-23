@@ -5,7 +5,7 @@
 
 </head>
 <body bgcolor="black" text="white" alink="green" vlink="green" link="green">
-<?php require('/pineapple/includes/navbar.php'); ?>
+<?php require('/opt/pwnpad/web-interface/includes/navbar.php'); ?>
 
 <pre>
 
@@ -35,11 +35,11 @@
 	}
 
 	//echo "<br />";
-	if (!(is_file('/pineapple/infusions/get/get.database')))
+	if (!(is_file('/opt/pwnpad/web-interface/infusions/get/get.database')))
 	{
 		//echo "<font color=\"red\">[*]</font> Get module has to be installed in order to sync with it!";
 	}
-	elseif (exec('cat sync_get') == 'yes' && is_file('/pineapple/infusions/get/get.database')) 
+	elseif (exec('cat sync_get') == 'yes' && is_file('/opt/pwnpad/web-interface/infusions/get/get.database')) 
 	{
 		echo "Synchronize with get <font color=\"lime\"><b>enabled</b></font>. | <a href=\"sync_get.php?sync_get=unsync\"><b>Unsync</b></a>";
 	}

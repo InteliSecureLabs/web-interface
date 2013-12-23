@@ -25,7 +25,7 @@ function installpyssl() {
 
 function setuplogs() {
   $logpath = realpath("SMSer.log");
-  exec("ln -s " . $logpath . " /pineapple/logs/");
+  exec("ln -s " . $logpath . " /opt/pwnpad/web-interface/logs/");
   echo '<font color="lime"><b>Log file has been configured!</b></font><br />';
 }
 
@@ -64,7 +64,7 @@ function submitcron($cronjob) {
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <?php include("/pineapple/includes/navbar.php"); ?><br />
+    <?php include("/opt/pwnpad/web-interface/includes/navbar.php"); ?><br />
     <div class="sidepanelLeft">
       <div class="sidepanelTitle">Configuration</div>
       <div class="sidepanelContent">
@@ -179,7 +179,7 @@ function submitcron($cronjob) {
           } else {
             echo 'Python-openssl : <a href="SMSer.php?action=pyssl"><font color="red"><b>NOT INSTALLED</b></font></a><br />';
           }
-          if (file_exists("/pineapple/logs/SMSer.log")) {
+          if (file_exists("/opt/pwnpad/web-interface/logs/SMSer.log")) {
             echo 'Logs : <font color="lime"><b>CONFIGURED</b></font>';
           } else {
             echo 'Logs : <a href="SMSer.php?action=linklogs"><font color="red"><b>CONFIGURE</b></font></a>';

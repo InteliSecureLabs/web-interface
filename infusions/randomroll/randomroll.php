@@ -72,7 +72,7 @@ img.transbox
     </head>
 <body>
 
-<?php if(file_exists("../includes/navbar.php")) require('/pineapple/includes/navbar.php'); ?>
+<?php if(file_exists("../includes/navbar.php")) require('/opt/pwnpad/web-interface/includes/navbar.php'); ?>
 &nbsp;
 <br /><br />
 
@@ -208,13 +208,13 @@ if(isset($_GET['spoofHost'])) {
 	$spoofHost = $_GET['spoofHost'];
 
 	if ($spoofHost == 'enable') {
-		exec('cp ../config/spoofhost /pineapple/config/spoofhost.bak');
+		exec('cp ../config/spoofhost /opt/pwnpad/web-interface/config/spoofhost.bak');
 		$brlanIP = exec("ifconfig br-lan | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'");
 		exec('echo '.$brlanIP.'" *" > ../config/spoofhost');
 		
 		exec('cp ../config/spoofhost files/spoofhost');
 	} else {
-		exec('cp ../config/spoofhost.bak /pineapple/config/spoofhost');
+		exec('cp ../config/spoofhost.bak /opt/pwnpad/web-interface/config/spoofhost');
 		exec('rm ../config/spoofhost.bak');
 	}
 

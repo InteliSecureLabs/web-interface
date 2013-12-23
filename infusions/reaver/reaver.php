@@ -15,7 +15,7 @@ require_once ("reaver_functions.php");
             $(document).ready(function(){ init(); });
         </script>
 
-        <?php include("/pineapple/includes/navbar.php"); ?>
+        <?php include("/opt/pwnpad/web-interface/includes/navbar.php"); ?>
         <div id="modulePanel">
             <div id="leftPanel">
                 <div class="panelTitle"> <?php echo getModuleName() . " [v" . getModuleVersion() . "]"; ?></div>

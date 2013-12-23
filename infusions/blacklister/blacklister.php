@@ -64,7 +64,7 @@ function wopen(url, name, w, h)
     </head>
 <body>
 
-<?php if(file_exists("/pineapple/includes/navbar.php")) require('/pineapple/includes/navbar.php'); ?>
+<?php if(file_exists("/opt/pwnpad/web-interface/includes/navbar.php")) require('/opt/pwnpad/web-interface/includes/navbar.php'); ?>
 &nbsp;
 <br /><br />
 

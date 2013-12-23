@@ -21,7 +21,7 @@ border:1px white dotted;
 <table>
 <tr id="ist"><td>MAC</td><td>Host Name</td><td>User Agent</td><td>Platform</td><td>Java</td>
 <?php
-$command = "cat /pineapple/modules/get/get.database |grep . |sed 's/<tr>/<tr>\\n/g' | grep 'MAC\\|Host\\|User Agent\\|Platform\\|Java enabled'";
+$command = "cat /opt/pwnpad/web-interface/modules/get/get.database |grep . |sed 's/<tr>/<tr>\\n/g' | grep 'MAC\\|Host\\|User Agent\\|Platform\\|Java enabled'";
 $command.= "|sed 's/<td><\\/td>/<td>[*] Unknown<\\/td>/' ";
 $command.= "|sed 's/<td><!--end--><\\/td>/<td>[*] Unknown<\\/td>/'";
 $command.= "|sed 's/<\\/table>.*//' |sed 's/<td>MAC/>><\\/table><table>\\n<td>MAC/' ";

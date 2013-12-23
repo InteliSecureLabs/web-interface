@@ -26,7 +26,7 @@ if (isset($_GET['reaver']))
             if (isset($_GET['bssid']) && $_GET['bssid'] != "")
             {
                 $bssid = $_GET['bssid'];
-                $cmd = "cat /pineapple/logs/reaver-$bssid.log";
+                $cmd = "cat /opt/pwnpad/web-interface/logs/reaver-$bssid.log";
 
                 exec($cmd, $output);
                 foreach ($output as $outputline)
@@ -63,7 +63,7 @@ if (isset($_GET['reaver']))
                 if (isset($_GET['a']) && $_GET['a'] == "true")
                     $cmd .=" -a ";
 
-                $cmd .= " -vv >> /pineapple/logs/reaver-$victime.log -D &";
+                $cmd .= " -vv >> /opt/pwnpad/web-interface/logs/reaver-$victime.log -D &";
 
                 exec($cmd);
 
