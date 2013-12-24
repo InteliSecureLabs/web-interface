@@ -4,7 +4,7 @@ putenv('LD_LIBRARY_PATH='.getenv('LD_LIBRARY_PATH').':/usb/lib:/usb/usr/lib');
 putenv('PATH='.getenv('PATH').':/usb/usr/bin:/usb/usr/sbin');
 
 $module_name = "Nmap";
-$module_path = "/opt/pwnpad/web-interface/infusions/nmap/";
+$module_path = exec("pwd")."/";
 $module_version = "2.4";
 
 $is_nmap_installed = exec("which nmap") != "" ? 1 : 0;
