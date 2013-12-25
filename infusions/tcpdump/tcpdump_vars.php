@@ -1,7 +1,7 @@
 <?php
 
-putenv('LD_LIBRARY_PATH='.getenv('LD_LIBRARY_PATH').':/usb/lib:/usb/usr/lib');   
-putenv('PATH='.getenv('PATH').':/usb/usr/bin:/usb/usr/sbin');
+putenv('LD_LIBRARY_PATH='.getenv('LD_LIBRARY_PATH').':/usr/lib');   
+putenv('PATH='.getenv('PATH').':/usr/bin:/usr/sbin');
 
 $module_name = "tcpdump";
 $module_path = exec("pwd")."/";
