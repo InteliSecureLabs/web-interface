@@ -35,7 +35,7 @@ $output = "";
 <div class=contentContent>
 <pre>
 <?php
-exec ("df -h", $output);
+exec ("grep -v rootfs /proc/mounts > /etc/mtab & df -h", $output);
 foreach($output as $outputline) {
 echo ("$outputline\n");}
 $output = "";
@@ -43,19 +43,6 @@ $output = "";
 </pre>
 
 </div><br /><br />
-
-<div class="contentTitle"><?=$strings["resources-lsusb"]?></div>
-<div class="contentContent">
-<?php
-exec("lsusb", $output);
-foreach($output as $outputline) {
-	echo ("$outputline\n");
-}
-$output = "";
-?>
-
-</div><br /><br />
-
 
 <div class=contentTitle><?=$strings["resources-processes"]?></div>
 <div class=contentContent>
