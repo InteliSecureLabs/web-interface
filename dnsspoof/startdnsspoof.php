@@ -1,5 +1,5 @@
 <?php
-exec ("echo '' > ../logs/dnsspoof.log");
+exec ("echo '' > /opt/pwnpad/web-interface/logs/dnsspoof.log");
 exec ("echo dnsspoof.sh | at now");
 ?>
 <html><head>
