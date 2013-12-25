@@ -13,11 +13,6 @@ $is_scan_running = file_exists($module_path."scans/tmp") != "" ? 1 : 0;
 
 if(!$is_nmap_running && $is_scan_running) exec("rm -rf ".$module_path."scans/tmp &");
 
-if(!file_exists("/usr/share/nmap/") && file_exists("/usb/usr/share/nmap/"))
-{
-	exec("ln -s /usb/usr/share/nmap/ /usr/share/nmap");
-}
-
 $profiles = array(
 				"Intense scan" => "-T4 -A -v",  
 				"Intense scan plus UDP" => "-sS -sU -T4 -A -v",  
