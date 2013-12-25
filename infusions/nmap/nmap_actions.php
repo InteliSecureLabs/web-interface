@@ -11,7 +11,7 @@ if (isset($_GET['scan']))
 
 		shell_exec("echo \"#!/bin/sh\n".$full_cmd." && mv ".$module_path."scans/tmp ".$module_path."scans/scan_".$time."\" > ".$module_path."nmap.sh && chmod +x ".$module_path."nmap.sh &");
 
-		$cmd = "echo ".$module_path."nmap.sh";
+		$cmd = "echo ".$module_path."nmap.sh | at now";
 	}
 }
 
