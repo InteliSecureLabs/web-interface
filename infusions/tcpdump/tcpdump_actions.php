@@ -11,7 +11,7 @@ if (isset($_GET['scan']))
 		
 		shell_exec("echo \"#!/bin/sh\n".$full_cmd." &\" > ".$module_path."tcpdump.sh && chmod +x ".$module_path."tcpdump.sh &");
 
-		$cmd = "echo ".$module_path."tcpdump.sh";
+		$cmd = "echo ".$module_path."tcpdump.sh | at now";
 	}
 }
 
