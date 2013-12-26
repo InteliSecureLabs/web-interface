@@ -13,7 +13,6 @@ if(!isset($strings)){
 <a href="/index.php"><font color="black"><b><?=$strings["navbar-status"]?></b></font></a> | 
 <a href="/index.php?config"><font color="black"><b><?=$strings["navbar-configuration"]?></b></font></a> | 
 <a href="/index.php?advanced"><font color="black"><b><?=$strings["navbar-advanced"]?></b></font></a> | 
-<a href="/index.php?usb"><font color="black"><b><?=$strings["navbar-usb"]?></b></font></a> | 
 <a href="/index.php?jobs"><font color="black"><b><?=$strings["navbar-jobs"]?></b></font></a> | 
 <a href="/index.php?ssh"><font color="black"><b><?=$strings["navbar-ssh"]?></b></font></a> | 
 <a href="/index.php?scripts"><font color="black"><b><?=$strings["navbar-scripts"]?></b></font></a> | 
