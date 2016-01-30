@@ -1,6 +1,6 @@
 <?php
 exec ("echo '' > /tmp/karma.log");
-exec ("echo /pineapple/karma/startkarma.sh | at now");
+exec ("echo ../karma/startkarma.sh | at now");
 ?>
 <html><head>
 <meta http-equiv="refresh" content="2; url=../wait.php">

@@ -72,7 +72,7 @@ img.transbox
     </head>
 <body>
 
-<?php if(file_exists("/pineapple/includes/navbar.php")) require('/pineapple/includes/navbar.php'); ?>
+<?php if(file_exists("../includes/navbar.php")) require('/opt/pwnpad/web-interface/includes/navbar.php'); ?>
 &nbsp;
 <br /><br />
 
@@ -208,14 +208,14 @@ if(isset($_GET['spoofHost'])) {
 	$spoofHost = $_GET['spoofHost'];
 
 	if ($spoofHost == 'enable') {
-		exec('cp /pineapple/config/spoofhost /pineapple/config/spoofhost.bak');
+		exec('cp ../config/spoofhost /opt/pwnpad/web-interface/config/spoofhost.bak');
 		$brlanIP = exec("ifconfig br-lan | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'");
-		exec('echo '.$brlanIP.'" *" > /pineapple/config/spoofhost');
+		exec('echo '.$brlanIP.'" *" > ../config/spoofhost');
 		
-		exec('cp /pineapple/config/spoofhost files/spoofhost');
+		exec('cp ../config/spoofhost files/spoofhost');
 	} else {
-		exec('cp /pineapple/config/spoofhost.bak /pineapple/config/spoofhost');
-		exec('rm /pineapple/config/spoofhost.bak');
+		exec('cp ../config/spoofhost.bak /opt/pwnpad/web-interface/config/spoofhost');
+		exec('rm ../config/spoofhost.bak');
 	}
 
 	unset($spoofHost, $brlanIP);
@@ -241,8 +241,8 @@ if(isset($_GET['dnsspoof'])) {
 
 	if ($dnsspoof == 'enable') {
 		exec('./setup-log.sh');
-		exec("echo '' > /pineapple/logs/dnsspoof.log");
-		exec("echo /pineapple/dnsspoof/dnsspoof.sh | at now");
+		exec("echo '' > ../logs/dnsspoof.log");
+		exec("echo ../dnsspoof/dnsspoof.sh | at now");
 	} else {
 		exec('killall dnsspoof');
 	}
@@ -392,12 +392,12 @@ if (strpos($file1, 'Random Roll by petertfm.')) {
 
 echo('</td></tr><tr><td>');
 
-$file1 = file_get_contents('/pineapple/config/spoofhost');
+$file1 = file_get_contents('../config/spoofhost');
 $file2 = file_get_contents('files/spoofhost');
 
-if (! file_exists('/pineapple/config/spoofhost.bak')) {
+if (! file_exists('../config/spoofhost.bak')) {
 	if ($file1 == $file2) {
-		exec('cp files/spoofhost.bak /pineapple/config/spoofhost.bak');
+		exec('cp files/spoofhost.bak ../config/spoofhost.bak');
 	}
 }
 

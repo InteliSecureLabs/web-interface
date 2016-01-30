@@ -1,2 +1,2 @@
 #!/bin/sh
-dnsspoof -i br-lan -f /pineapple/config/spoofhost > /dev/null 2>/pineapple/logs/dnsspoof.log
+dnsspoof -i br-lan -f /opt/pwnpad/web-interface/config/spoofhost > /dev/null 2>/opt/pwnpad/web-interface/logs/dnsspoof.log

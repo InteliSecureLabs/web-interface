@@ -1,0 +1,146 @@
+* {
+	font-family: courier;
+	font-size: 13px;
+}
+
+#version {
+	text-align: right;
+	margin: 5px 10px -12px;
+}
+
+.graph-border {
+	background: #FFF;
+	border: 1px solid #DDD;
+	height: 16px;
+}
+.graph-bar {
+	text-align: left;
+	color: black;
+	height: 16px;
+}
+.grid {
+	padding: 0;
+	border-spacing: 1px;
+	border-collapse: separate;
+	border: 1px solid #e0e0e0;
+	background: #fff;
+	color: black;
+}
+
+.grid tr {
+	cursor: pointer;
+}
+
+.grid td {
+	padding: 2px;
+	margin: 0px;
+}
+.graph {
+	color: white;
+	background: black;
+	font-weight: bold;
+}
+
+.grid .header {
+	color: black;
+	background: #e7e7e7;
+}
+.grid .header td {
+	font-weight: bold;
+}
+.grid .footer {
+	background: #f0f0f0;
+}
+.grid .odd {
+	background: #f7f7f7;
+}
+.grid .even {
+	background: #fff;
+}
+
+select {
+	background-color: black;
+	border-style: none;
+	color: green;
+}
+
+input {
+	background-color: black;
+	border-style: none;
+	color: green;
+}
+
+input[type="checkbox"] {
+	margin: 0;
+}
+
+.tab ul {
+	margin-left: -40px;
+}
+.tab li {
+	list-style: none;
+	float: left;
+}
+.tab ul a {
+	display: block;
+	padding: 6px 10px;
+	text-decoration: none!important;
+	margin: 1px;
+	margin-left: 0;
+	color: #FFF;
+	background: green;
+}
+.tab ul a:hover {
+	color: #FFF;
+	background: #111;
+}
+.tab ul a.selected {
+	margin-bottom: 0;
+	color: #000;
+	background: snow;
+	border-bottom: 1px solid snow;
+	cursor: default;
+}
+.tab div {
+	padding: 10px 5px;
+	clear: left;
+	background: snow;
+	color: black;
+}
+.tab div a {
+	color: #000;
+	font-weight: bold;
+}
+.setting {
+    margin-bottom: 0;
+    margin-top: 0.453em;
+    position: relative;
+}
+.setting .label {
+    float: left;
+    width: 18.931em;
+}
+.sidePanelLeft .setting .label {
+    float: left;
+    width: 10em;
+}
+.settings_right {
+    float: right;
+}
+fieldset legend {
+    font-weight: bold;
+	color: green;
+}
+fieldset {
+    border: 0.09em solid green;
+    margin: 0;
+    padding: 0.725em;
+    padding-top: 0;
+}
+.interfaces {
+	color: white;
+}
+.interfaces td {
+	padding-left: 10px;
+	margin: 0px;
+}

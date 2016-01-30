@@ -89,6 +89,7 @@ echo "<br /><br />";
 <div class=contentTitle><?=$strings["advanced-routing-title"]?></div>
 <div class=contentContent>
 <pre>
+
 <?php $cmd = "route | grep -v 'Kernel IP routing table'";
 exec("$cmd 2>&1", $output);
 foreach($output as $outputline) {echo ("$outputline\n");}?>
@@ -97,6 +98,7 @@ foreach($output as $outputline) {echo ("$outputline\n");}?>
 <input type="text" name="route" value="route" style="width:100%;"><br />
 <input type='submit' value='<?=$strings["advanced-routing-button"]?>'> <small><?=$strings["advanced-routing-example"]?> <i>route add default gw 172.16.42.42 br-lan</i> <br /></small></form>
 <br />
+
 <?php
 if(isset($_POST['route']) && $_POST['route'] != "") {
 exec($_POST['route'], $routeoutput);
@@ -104,6 +106,7 @@ echo "<br /><font color='yellow'>".$strings["advanced-routing-execute"]." " . $_
 foreach($routeoutput as $routeoutputline) { echo ("$routeoutputline\n"); }
 echo "</b></font><br />"; }
 ?>
+
 </div><br /><br />
 
 
@@ -114,44 +117,3 @@ echo "</b></font><br />"; }
 <form method="post" action=""><input type="text" name="traceroutehost" > <input type="submit" value="<?=$strings["advanced-traceroute"]?>" name="submit"></form>
 
 </div><br /><br />
-
-<div class=contentTitle><?=$strings["advanced-password-title"]?></div>
-<div class=contentContent>
-<?php
-if(isset($_POST['changePass'])){
-if($_POST['pass'] == $_POST['pass2'] && $_POST['pass'] != ""){
-exec("./advanced/changePass \"".$_POST['pass']."\"");
-$passMessage = "<font color=lime>".$strings["advanced-password-success"]."<br />".$strings["advanced-password-note"]."<br /><br /></font>";
-}else $passMessage = "<font color=red>".$strings["advanced-password-unsuccessful"]."</font><br /><br />";
-}
-?>
-<?php echo $passMessage ?>
-<form action="" method="POST">
-<table>
-<tr><td><?=$strings["advanced-password"]?></td><td><input type="password" name="pass"></td></tr>
-<tr><td><?=$strings["advanced-password-repeat"]?></td><td><input type="password" name="pass2"></td></tr>
-<tr><td><input type="submit" name="changePass" value="<?=$strings["advanced-password-button"]?>"></td></tr>
-</table>
-</form>
-</div><br /><br />
-
-</div>
-<div align=left>
-<pre align=left>
-<font align=left color="white">
-                    \               
-                  \  \          
-                \  \  \</font><font color="green">              			
-<,  .v ,  // </font><font color="white">) ) )  )  )</font><font color="green">                  
- \\; \// //     </font><font color="white">/  /  /</font><font color="green">                          
-  ;\\|||//;       </font><font color="white">/  /</font><font color="yellow">		
- ,'<\/><\/`         </font><font color="white">/</font><font color="yellow">                    
-,.`X/\><\\>`                      
-;>/>><\\><\/`                        
-|<\\>>X/<>/\|
-`<\/><\/><\\;                            
- '/\<>/\<>/'                       
-   `<\/><;`</font><font color="white">wifi_pineapple</font>
-</pre>
-</div>
-

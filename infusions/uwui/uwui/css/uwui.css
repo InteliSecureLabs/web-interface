@@ -1,0 +1,133 @@
+body {
+	font-family: courier;
+	font-size: 13px;
+	color:white;
+	background:black;
+	text-align:left;
+	vertical-align:middle;
+}
+a {
+	font-family: monospace;
+	font-size:10;
+	color:green;
+}
+img {
+	width:20px;
+	height:20px;
+}
+input {
+	text-align:center;
+	font-size:10;
+	font-family: monospace;
+	border-style: solid;
+	border-color: green;
+	background: darkgreen;
+	color:white;
+	border-width: 2px;
+	border-top-left-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	border-bottom-left-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+	padding: 1px;
+	margin: 2px;
+}
+.enlace {
+	position: absolute;
+	padding: 1px;
+	min-height: 1px;
+	max-height: 1px;
+	border-style: none;
+	border-width: 0px
+	vertical-align:middle;
+}
+.nodo {
+	position: absolute;
+	min-width:140px;
+	max-width:140px;
+	text-align:left;
+	padding: 0px;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	background:black;
+	min-height: 60px;
+	max-height: 60px;
+	color:white;
+	border-style: solid;
+	border-width: 2px;
+	display:table;
+}
+.icono {
+	display:table-cell;
+	padding: 3px;
+	border-style: none;
+	border-width: 0px;
+	width:36px;
+	height:36px;
+	background-size: 80%;
+	background-repeat:no-repeat;
+	background-position: 50% 50%;
+}
+.info {
+	display:table-cell;
+	min-width:90px;
+	max-width:90px;
+	font-size:8;
+	padding: 3px;
+	border-style: none;
+	border-width: 0px;
+	vertical-align: top;
+	overflow:hidden;
+}
+.window {
+	position: absolute;
+	text-align:left;
+	font-size:9;
+	padding: 4px;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	background:#003000;
+	color:white;
+	border-style: solid;
+	border-width: 2px;
+	border-color: green;
+	align:center;
+}
+
+.window2 {
+	text-align:left;
+	font-size:9;
+	padding: 4px;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	background:#003000;
+	color:white;
+	border-style: solid;
+	border-width: 2px;
+	border-color: green;
+	align:center;
+}
+
+.terminal {
+	position: absolute;
+	width:48.5%;
+	height:47%;
+	text-align:left;
+	font-size:8;
+	padding:4px;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	background:#001100;
+	color:white;
+	border-style:solid;
+	border-width:4px;
+	border-color:#003300;
+	overflow:auto;
+}

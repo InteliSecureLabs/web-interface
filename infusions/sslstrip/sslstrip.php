@@ -24,7 +24,7 @@ require("sslstrip_vars.php");
 	$(document).ready( function () { init(); <?php if ($is_sslstrip_running) echo "refresh();"; ?> });
 </script>
 
-<?php if(file_exists("/pineapple/includes/navbar.php")) require('/pineapple/includes/navbar.php'); ?>
+<?php if(file_exists("../includes/navbar.php")) require('/opt/pwnpad/web-interface/includes/navbar.php'); ?>
 
 <p id="version">v<?php echo $module_version; ?></p>
 

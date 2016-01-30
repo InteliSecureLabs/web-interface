@@ -10,6 +10,7 @@ if (isset($_GET['scan']))
 		$full_cmd = stripslashes($_GET['cmd']) . " -w ".$module_path."dumps/dump_".$time.".pcap 2> ".$module_path."dumps/capture.log";
 		
 		shell_exec("echo \"#!/bin/sh\n".$full_cmd." &\" > ".$module_path."tcpdump.sh && chmod +x ".$module_path."tcpdump.sh &");
+
 		$cmd = "echo ".$module_path."tcpdump.sh | at now";
 	}
 }

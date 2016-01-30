@@ -8,9 +8,9 @@ if [ -f /www/index.php.bak ]; then
 fi
 
 
-if [ -f /pineapple/config/spoofhost.bak ]; then
-	cp /pineapple/config/spoofhost.bak /pineapple/config/spoofhost
-	rm /pineapple/config/spoofhost.bak
+if [ -f /opt/pwnpad/web-interface/config/spoofhost.bak ]; then
+	cp /opt/pwnpad/web-interface/config/spoofhost.bak /pineapple/config/spoofhost
+	rm /opt/pwnpad/web-interface/config/spoofhost.bak
 fi
 
 

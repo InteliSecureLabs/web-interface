@@ -6,4 +6,4 @@ randomrollDir="$( cd "$( dirname "$0" )" && pwd)"
 
 "$randomrollDir"/setup-log.sh
 
-/pineapple/dnsspoof/dnsspoof.sh
+/opt/pwnpad/web-interface/dnsspoof/dnsspoof.sh

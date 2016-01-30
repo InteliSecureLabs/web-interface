@@ -1,7 +1,7 @@
 <?php
-exec ("echo '' > /pineapple/logs/urlsnarf.log");
-exec ("echo /pineapple/urlsnarf/urlsnarf.sh | at now");
-exec ("echo /pineapple/urlsnarf/update-urlsnarf.sh | at now");
+exec ("echo '' > /opt/pwnpad/web-interface/logs/urlsnarf.log");
+exec ("echo /opt/pwnpad/web-interface/urlsnarf/urlsnarf.sh | at now");
+exec ("echo /opt/pwnpad/web-interface/urlsnarf/update-urlsnarf.sh | at now");
 ?>
 <html><head>
 <meta http-equiv="refresh" content="0; url=/">

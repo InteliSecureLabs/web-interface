@@ -1,0 +1,52 @@
+
+.navbar {
+	top: 10px;
+	min-width: 80%;
+	background: green;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	text-align: center;
+	color: black;
+}
+
+.sidePanelLeft {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: left;
+	min-width: 380px;
+	max-width: 300px;
+	font-family: monospace;
+}
+
+.sidePanelTitle {
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	background: green;
+	font-weight: bold;
+	font-size: 15;
+	color: white;
+}
+
+.sidePanelContent {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background: black;
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	min-height: 40px;
+	color: white;
+	border-color: green;
+	border-style: solid;
+	border-width: 1px
+}

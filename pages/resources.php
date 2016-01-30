@@ -26,8 +26,6 @@ echo ("$outputline\n");}
 $output = "";
 ?>
 </pre>
-<a href='index.php?resources&drop_caches'>echo 3 > /proc/sys/vm/drop_caches</a> <font color='orange'><small><?=$strings["resources-memory-experimental"]?></small></font>
-
 </div><br /><br />
 
 
@@ -35,6 +33,7 @@ $output = "";
 <div class=contentContent>
 <pre>
 <?php
+exec ("grep -v rootfs /proc/mounts > /etc/mtab");
 exec ("df -h", $output);
 foreach($output as $outputline) {
 echo ("$outputline\n");}
@@ -43,19 +42,6 @@ $output = "";
 </pre>
 
 </div><br /><br />
-
-<div class="contentTitle"><?=$strings["resources-lsusb"]?></div>
-<div class="contentContent">
-<?php
-exec("lsusb", $output);
-foreach($output as $outputline) {
-	echo ("$outputline\n");
-}
-$output = "";
-?>
-
-</div><br /><br />
-
 
 <div class=contentTitle><?=$strings["resources-processes"]?></div>
 <div class=contentContent>

